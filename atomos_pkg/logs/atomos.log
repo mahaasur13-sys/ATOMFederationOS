@@ -1,0 +1,1115 @@
+2026-04-11 05:39:57,919 | atomos.boot          | INFO     | ============================================================
+2026-04-11 05:39:57,919 | atomos.boot          | INFO     | ATOM OS v15 — BOOT SEQUENCE
+2026-04-11 05:39:57,919 | atomos.boot          | INFO     | ============================================================
+2026-04-11 05:39:57,919 | atomos.boot          | INFO     | 
+[PHASE 0] Loading configuration...
+2026-04-11 05:39:57,919 | atomos.boot          | INFO     |   Config loaded: []
+2026-04-11 05:39:57,919 | atomos.boot          | INFO     | 
+[PHASE 1] Module discovery & registration...
+2026-04-11 05:40:13,144 | atomos.boot          | INFO     | ============================================================
+2026-04-11 05:40:13,144 | atomos.boot          | INFO     | ATOM OS v15 — BOOT SEQUENCE
+2026-04-11 05:40:13,144 | atomos.boot          | INFO     | ============================================================
+2026-04-11 05:40:13,144 | atomos.boot          | INFO     | 
+[PHASE 0] Loading configuration...
+2026-04-11 05:40:13,144 | atomos.boot          | INFO     |   Config loaded: []
+2026-04-11 05:40:13,144 | atomos.boot          | INFO     | 
+[PHASE 1] Module discovery & registration...
+2026-04-11 05:41:58,733 | atomos.boot          | INFO     | ============================================================
+2026-04-11 05:41:58,733 | atomos.boot          | INFO     | ATOM OS v15 — BOOT SEQUENCE
+2026-04-11 05:41:58,733 | atomos.boot          | INFO     | ============================================================
+2026-04-11 05:41:58,733 | atomos.boot          | INFO     | 
+[PHASE 0] Loading configuration...
+2026-04-11 05:41:58,733 | atomos.boot          | INFO     |   Config loaded: []
+2026-04-11 05:41:58,733 | atomos.boot          | INFO     | 
+[PHASE 1] Module discovery & registration...
+2026-04-11 05:41:58,788 | atomos.boot          | INFO     |   Auto-registering: aic_os (agent)
+2026-04-11 05:41:58,788 | atomos.boot          | INFO     |   Auto-registering: apex_execution_kernel (agent)
+2026-04-11 05:41:58,788 | atomos.boot          | INFO     |   Auto-registering: apex_runtime (agent)
+2026-04-11 05:41:58,788 | atomos.boot          | INFO     |   Auto-registering: audit_ledger (audit)
+2026-04-11 05:41:58,788 | atomos.boot          | INFO     |   Auto-registering: capability_system (agent)
+2026-04-11 05:41:58,788 | atomos.boot          | INFO     |   Auto-registering: civ_to_reality (agent)
+2026-04-11 05:41:58,789 | atomos.boot          | INFO     |   Auto-registering: civilization_council (agent)
+2026-04-11 05:41:58,789 | atomos.boot          | INFO     |   Auto-registering: civilization_evolution (agent)
+2026-04-11 05:41:58,789 | atomos.boot          | INFO     |   Auto-registering: civilization_memory (agent)
+2026-04-11 05:41:58,789 | atomos.boot          | INFO     |   Auto-registering: control_plane (control)
+2026-04-11 05:41:58,789 | atomos.boot          | INFO     |   Auto-registering: control_plane_evolver (agent)
+2026-04-11 05:41:58,789 | atomos.boot          | INFO     |   Auto-registering: corp_budget_controller (agent)
+2026-04-11 05:41:58,789 | atomos.boot          | INFO     |   Auto-registering: corp_governance_board (agent)
+2026-04-11 05:41:58,789 | atomos.boot          | INFO     |   Auto-registering: corp_org_registry (agent)
+2026-04-11 05:41:58,789 | atomos.boot          | INFO     |   Auto-registering: corp_roi_tracker (agent)
+2026-04-11 05:41:58,789 | atomos.boot          | INFO     |   Auto-registering: corp_role_allocator (agent)
+2026-04-11 05:41:58,789 | atomos.boot          | INFO     |   Auto-registering: cross_economy_trade (agent)
+2026-04-11 05:41:58,789 | atomos.boot          | INFO     |   Auto-registering: distributed_memory (agent)
+2026-04-11 05:41:58,789 | atomos.boot          | INFO     |   Auto-registering: economic_memory (agent)
+2026-04-11 05:41:58,789 | atomos.boot          | INFO     |   Auto-registering: economy_coordinator (agent)
+2026-04-11 05:41:58,789 | atomos.boot          | INFO     |   Auto-registering: episodic_memory (memory)
+2026-04-11 05:41:58,789 | atomos.boot          | INFO     |   Auto-registering: execution_proof_engine (audit)
+2026-04-11 05:41:58,789 | atomos.boot          | INFO     |   Auto-registering: execution_sandbox (agent)
+2026-04-11 05:41:58,789 | atomos.boot          | INFO     |   Auto-registering: global_coordinator (agent)
+2026-04-11 05:41:58,789 | atomos.boot          | INFO     |   Auto-registering: global_episodic_memory (agent)
+2026-04-11 05:41:58,790 | atomos.boot          | INFO     |   Auto-registering: global_impact_memory (agent)
+2026-04-11 05:41:58,790 | atomos.boot          | INFO     |   Auto-registering: global_resource_market (agent)
+2026-04-11 05:41:58,790 | atomos.boot          | INFO     |   Auto-registering: gpu_control (agent)
+2026-04-11 05:41:58,790 | atomos.boot          | INFO     |   Auto-registering: immutable_audit_graph (audit)
+2026-04-11 05:41:58,790 | atomos.boot          | INFO     |   Auto-registering: infra_abstraction (agent)
+2026-04-11 05:41:58,790 | atomos.boot          | INFO     |   Auto-registering: langgraph_core (agent)
+2026-04-11 05:41:58,790 | atomos.boot          | INFO     |   Auto-registering: memory_hierarchy (memory)
+2026-04-11 05:41:58,790 | atomos.boot          | INFO     |   Auto-registering: meta_control_loop (agent)
+2026-04-11 05:41:58,790 | atomos.boot          | INFO     |   Auto-registering: meta_decision_engine (agent)
+2026-04-11 05:41:58,790 | atomos.boot          | INFO     |   Auto-registering: meta_policy_kernel (agent)
+2026-04-11 05:41:58,790 | atomos.boot          | INFO     |   Auto-registering: meta_proof_engine (agent)
+2026-04-11 05:41:58,790 | atomos.boot          | INFO     |   Auto-registering: mission_broker (agent)
+2026-04-11 05:41:58,790 | atomos.boot          | INFO     |   Auto-registering: mission_controller (mission)
+2026-04-11 05:41:58,790 | atomos.boot          | INFO     |   Auto-registering: mission_generator (mission)
+2026-04-11 05:41:58,790 | atomos.boot          | INFO     |   Auto-registering: mission_prioritizer (mission)
+2026-04-11 05:41:58,790 | atomos.boot          | INFO     |   Auto-registering: orchestrator (agent)
+2026-04-11 05:41:58,790 | atomos.boot          | INFO     |   Auto-registering: policy_consensus (agent)
+2026-04-11 05:41:58,791 | atomos.boot          | INFO     |   Auto-registering: policy_engine (agent)
+2026-04-11 05:41:58,791 | atomos.boot          | INFO     |   Auto-registering: policy_kernel (agent)
+2026-04-11 05:41:58,791 | atomos.boot          | INFO     |   Auto-registering: policy_kernel_v2 (policy)
+2026-04-11 05:41:58,791 | atomos.boot          | INFO     |   Auto-registering: policy_kernel_v3 (policy)
+2026-04-11 05:41:58,791 | atomos.boot          | INFO     |   Auto-registering: policy_kernel_v4 (policy)
+2026-04-11 05:41:58,791 | atomos.boot          | INFO     |   Auto-registering: proof_engine (audit)
+2026-04-11 05:41:58,791 | atomos.boot          | INFO     |   Auto-registering: reality_action_engine (agent)
+2026-04-11 05:41:58,791 | atomos.boot          | INFO     |   Auto-registering: reality_control_council (agent)
+2026-04-11 05:41:58,791 | atomos.boot          | INFO     |   Auto-registering: replay_engine (audit)
+2026-04-11 05:41:58,791 | atomos.boot          | INFO     |   Auto-registering: resource_ledger (agent)
+2026-04-11 05:41:58,791 | atomos.boot          | INFO     |   Auto-registering: safety_gate (devops)
+2026-04-11 05:41:58,791 | atomos.boot          | INFO     |   Auto-registering: secure_execution_engine (agent)
+2026-04-11 05:41:58,791 | atomos.boot          | INFO     |   Auto-registering: semantic_firewall (agent)
+2026-04-11 05:41:58,791 | atomos.boot          | INFO     |   Auto-registering: state_machine (agent)
+2026-04-11 05:41:58,791 | atomos.boot          | INFO     |   Auto-registering: swarm (swarm)
+2026-04-11 05:41:58,791 | atomos.boot          | INFO     |   Auto-registering: system_mapper (agent)
+2026-04-11 05:41:58,791 | atomos.boot          | INFO     |   Auto-registering: taar_os (agent)
+2026-04-11 05:41:58,792 | atomos.boot          | INFO     |   Auto-registering: taar_v10 (agent)
+2026-04-11 05:41:58,792 | atomos.boot          | INFO     |   Auto-registering: taar_v10_1 (agent)
+2026-04-11 05:41:58,792 | atomos.boot          | INFO     |   Auto-registering: taar_v14 (control)
+2026-04-11 05:41:58,792 | atomos.boot          | INFO     |   Auto-registering: taar_v5 (agent)
+2026-04-11 05:41:58,792 | atomos.boot          | INFO     |   Auto-registering: taar_v6 (control)
+2026-04-11 05:41:58,792 | atomos.boot          | INFO     |   Auto-registering: taar_v8 (agent)
+2026-04-11 05:41:58,792 | atomos.boot          | INFO     |   Auto-registering: taar_v9 (control)
+2026-04-11 05:41:58,792 | atomos.boot          | INFO     |   Auto-registering: task_graph (agent)
+2026-04-11 05:41:58,792 | atomos.boot          | INFO     |   Auto-registering: task_market (agent)
+2026-04-11 05:41:58,792 | atomos.boot          | INFO     |   Auto-registering: tools_adapter (agent)
+2026-04-11 05:41:58,792 | atomos.boot          | INFO     |   Auto-registering: trusted_context (agent)
+2026-04-11 05:41:58,792 | atomos.boot          | INFO     |   Auto-registering: user_gateway (ui)
+2026-04-11 05:41:58,792 | atomos.boot          | INFO     |   Auto-registering: value_evaluator (agent)
+2026-04-11 05:41:58,792 | atomos.boot          | INFO     | 
+[PHASE 2] Booting service registry...
+2026-04-11 05:41:58,792 | atomos.registry      | INFO     | Boot order: memory → shell_tool → filesystem_tool → git_tool → devops_agent → ci_analyzer → patch_engine → swarm_engine → ollama_client → system_observer → metrics_collector → anomaly_detector → cli → aic_os → apex_execution_kernel → apex_runtime → audit_ledger → capability_system → civ_to_reality → civilization_council → civilization_evolution → civilization_memory → control_plane → control_plane_evolver → corp_budget_controller → corp_governance_board → corp_org_registry → corp_roi_tracker → corp_role_allocator → cross_economy_trade → distributed_memory → economic_memory → economy_coordinator → episodic_memory → execution_proof_engine → execution_sandbox → global_coordinator → global_episodic_memory → global_impact_memory → global_resource_market → gpu_control → immutable_audit_graph → infra_abstraction → langgraph_core → memory_hierarchy → meta_control_loop → meta_decision_engine → meta_policy_kernel → meta_proof_engine → mission_broker → mission_controller → mission_generator → mission_prioritizer → orchestrator → policy_consensus → policy_engine → policy_kernel → policy_kernel_v2 → policy_kernel_v3 → policy_kernel_v4 → proof_engine → reality_action_engine → reality_control_council → replay_engine → resource_ledger → safety_gate → secure_execution_engine → semantic_firewall → state_machine → swarm → system_mapper → taar_os → taar_v10 → taar_v10_1 → taar_v14 → taar_v5 → taar_v6 → taar_v8 → taar_v9 → task_graph → task_market → tools_adapter → trusted_context → user_gateway → value_evaluator
+2026-04-11 05:41:58,792 | atomos.registry      | INFO     |   Booting memory...
+2026-04-11 05:41:58,793 | atomos.registry      | INFO     |     ✅ memory (healthy)
+2026-04-11 05:41:58,793 | atomos.registry      | INFO     |   Booting shell_tool...
+2026-04-11 05:41:58,793 | atomos.tools.shell   | INFO     |   Shell tool ready
+2026-04-11 05:41:58,793 | atomos.registry      | INFO     |     ✅ shell_tool (healthy)
+2026-04-11 05:41:58,793 | atomos.registry      | INFO     |   Booting filesystem_tool...
+2026-04-11 05:41:58,793 | atomos.registry      | INFO     |     ✅ filesystem_tool (healthy)
+2026-04-11 05:41:58,793 | atomos.registry      | INFO     |   Booting git_tool...
+2026-04-11 05:41:58,793 | atomos.registry      | INFO     |     ✅ git_tool (healthy)
+2026-04-11 05:41:58,793 | atomos.registry      | INFO     |   Booting devops_agent...
+2026-04-11 05:41:58,793 | atomos.devops        | INFO     |   DevOps agent ready
+2026-04-11 05:41:58,793 | atomos.registry      | INFO     |     ✅ devops_agent (healthy)
+2026-04-11 05:41:58,793 | atomos.registry      | INFO     |   Booting ci_analyzer...
+2026-04-11 05:41:58,793 | atomos.devops        | INFO     |   CI analyzer ready
+2026-04-11 05:41:58,794 | atomos.registry      | INFO     |     ✅ ci_analyzer (healthy)
+2026-04-11 05:41:58,794 | atomos.registry      | INFO     |   Booting patch_engine...
+2026-04-11 05:41:58,794 | atomos.devops        | INFO     |   Patch engine ready
+2026-04-11 05:41:58,794 | atomos.registry      | INFO     |     ✅ patch_engine (healthy)
+2026-04-11 05:41:58,794 | atomos.registry      | INFO     |   Booting swarm_engine...
+2026-04-11 05:41:58,794 | atomos.swarm         | INFO     |   Swarm engine ready (max_workers=8)
+2026-04-11 05:41:58,794 | atomos.registry      | INFO     |     ✅ swarm_engine (healthy)
+2026-04-11 05:41:58,794 | atomos.registry      | INFO     |   Booting ollama_client...
+2026-04-11 05:41:58,803 | atomos.ollama        | INFO     |   Ollama ready: qwen2.5-coder-7b
+2026-04-11 05:41:58,803 | atomos.registry      | INFO     |     ✅ ollama_client (healthy)
+2026-04-11 05:41:58,803 | atomos.registry      | INFO     |   Booting system_observer...
+2026-04-11 05:41:58,803 | atomos.registry      | INFO     |     ✅ system_observer (healthy)
+2026-04-11 05:41:58,804 | atomos.registry      | INFO     |   Booting metrics_collector...
+2026-04-11 05:41:58,804 | atomos.registry      | INFO     |     ✅ metrics_collector (healthy)
+2026-04-11 05:41:58,804 | atomos.registry      | INFO     |   Booting anomaly_detector...
+2026-04-11 05:41:58,804 | atomos.observability | INFO     |   Anomaly detector calibrated
+2026-04-11 05:41:58,804 | atomos.registry      | INFO     |     ✅ anomaly_detector (healthy)
+2026-04-11 05:41:58,804 | atomos.registry      | INFO     |   Booting cli...
+2026-04-11 05:41:58,804 | atomos.ui.cli        | INFO     |   CLI ready
+2026-04-11 05:41:58,804 | atomos.registry      | INFO     |     ✅ cli (initialized)
+2026-04-11 05:41:58,804 | atomos.registry      | INFO     |   Booting aic_os...
+2026-04-11 05:41:58,805 | atomos.registry      | ERROR    |     ❌ aic_os failed to boot: No module named 'corp_governance_board'
+2026-04-11 05:42:05,224 | atomos.boot          | INFO     | ============================================================
+2026-04-11 05:42:05,224 | atomos.boot          | INFO     | ATOM OS v15 — BOOT SEQUENCE
+2026-04-11 05:42:05,224 | atomos.boot          | INFO     | ============================================================
+2026-04-11 05:42:05,224 | atomos.boot          | INFO     | 
+[PHASE 0] Loading configuration...
+2026-04-11 05:42:05,224 | atomos.boot          | INFO     |   Config loaded: []
+2026-04-11 05:42:05,224 | atomos.boot          | INFO     | 
+[PHASE 1] Module discovery & registration...
+2026-04-11 05:42:05,269 | atomos.boot          | INFO     |   Auto-registering: aic_os (agent)
+2026-04-11 05:42:05,269 | atomos.boot          | INFO     |   Auto-registering: apex_execution_kernel (agent)
+2026-04-11 05:42:05,269 | atomos.boot          | INFO     |   Auto-registering: apex_runtime (agent)
+2026-04-11 05:42:05,269 | atomos.boot          | INFO     |   Auto-registering: audit_ledger (audit)
+2026-04-11 05:42:05,269 | atomos.boot          | INFO     |   Auto-registering: capability_system (agent)
+2026-04-11 05:42:05,270 | atomos.boot          | INFO     |   Auto-registering: civ_to_reality (agent)
+2026-04-11 05:42:05,270 | atomos.boot          | INFO     |   Auto-registering: civilization_council (agent)
+2026-04-11 05:42:05,270 | atomos.boot          | INFO     |   Auto-registering: civilization_evolution (agent)
+2026-04-11 05:42:05,270 | atomos.boot          | INFO     |   Auto-registering: civilization_memory (agent)
+2026-04-11 05:42:05,270 | atomos.boot          | INFO     |   Auto-registering: control_plane (control)
+2026-04-11 05:42:05,270 | atomos.boot          | INFO     |   Auto-registering: control_plane_evolver (agent)
+2026-04-11 05:42:05,270 | atomos.boot          | INFO     |   Auto-registering: corp_budget_controller (agent)
+2026-04-11 05:42:05,270 | atomos.boot          | INFO     |   Auto-registering: corp_governance_board (agent)
+2026-04-11 05:42:05,270 | atomos.boot          | INFO     |   Auto-registering: corp_org_registry (agent)
+2026-04-11 05:42:05,270 | atomos.boot          | INFO     |   Auto-registering: corp_roi_tracker (agent)
+2026-04-11 05:42:05,270 | atomos.boot          | INFO     |   Auto-registering: corp_role_allocator (agent)
+2026-04-11 05:42:05,270 | atomos.boot          | INFO     |   Auto-registering: cross_economy_trade (agent)
+2026-04-11 05:42:05,270 | atomos.boot          | INFO     |   Auto-registering: distributed_memory (agent)
+2026-04-11 05:42:05,270 | atomos.boot          | INFO     |   Auto-registering: economic_memory (agent)
+2026-04-11 05:42:05,270 | atomos.boot          | INFO     |   Auto-registering: economy_coordinator (agent)
+2026-04-11 05:42:05,270 | atomos.boot          | INFO     |   Auto-registering: episodic_memory (memory)
+2026-04-11 05:42:05,270 | atomos.boot          | INFO     |   Auto-registering: execution_proof_engine (audit)
+2026-04-11 05:42:05,270 | atomos.boot          | INFO     |   Auto-registering: execution_sandbox (agent)
+2026-04-11 05:42:05,270 | atomos.boot          | INFO     |   Auto-registering: global_coordinator (agent)
+2026-04-11 05:42:05,271 | atomos.boot          | INFO     |   Auto-registering: global_episodic_memory (agent)
+2026-04-11 05:42:05,271 | atomos.boot          | INFO     |   Auto-registering: global_impact_memory (agent)
+2026-04-11 05:42:05,271 | atomos.boot          | INFO     |   Auto-registering: global_resource_market (agent)
+2026-04-11 05:42:05,271 | atomos.boot          | INFO     |   Auto-registering: gpu_control (agent)
+2026-04-11 05:42:05,271 | atomos.boot          | INFO     |   Auto-registering: immutable_audit_graph (audit)
+2026-04-11 05:42:05,271 | atomos.boot          | INFO     |   Auto-registering: infra_abstraction (agent)
+2026-04-11 05:42:05,271 | atomos.boot          | INFO     |   Auto-registering: langgraph_core (agent)
+2026-04-11 05:42:05,271 | atomos.boot          | INFO     |   Auto-registering: memory_hierarchy (memory)
+2026-04-11 05:42:05,271 | atomos.boot          | INFO     |   Auto-registering: meta_control_loop (agent)
+2026-04-11 05:42:05,271 | atomos.boot          | INFO     |   Auto-registering: meta_decision_engine (agent)
+2026-04-11 05:42:05,271 | atomos.boot          | INFO     |   Auto-registering: meta_policy_kernel (agent)
+2026-04-11 05:42:05,271 | atomos.boot          | INFO     |   Auto-registering: meta_proof_engine (agent)
+2026-04-11 05:42:05,271 | atomos.boot          | INFO     |   Auto-registering: mission_broker (agent)
+2026-04-11 05:42:05,271 | atomos.boot          | INFO     |   Auto-registering: mission_controller (mission)
+2026-04-11 05:42:05,271 | atomos.boot          | INFO     |   Auto-registering: mission_generator (mission)
+2026-04-11 05:42:05,271 | atomos.boot          | INFO     |   Auto-registering: mission_prioritizer (mission)
+2026-04-11 05:42:05,271 | atomos.boot          | INFO     |   Auto-registering: orchestrator (agent)
+2026-04-11 05:42:05,271 | atomos.boot          | INFO     |   Auto-registering: policy_consensus (agent)
+2026-04-11 05:42:05,271 | atomos.boot          | INFO     |   Auto-registering: policy_engine (agent)
+2026-04-11 05:42:05,271 | atomos.boot          | INFO     |   Auto-registering: policy_kernel (agent)
+2026-04-11 05:42:05,272 | atomos.boot          | INFO     |   Auto-registering: policy_kernel_v2 (policy)
+2026-04-11 05:42:05,272 | atomos.boot          | INFO     |   Auto-registering: policy_kernel_v3 (policy)
+2026-04-11 05:42:05,272 | atomos.boot          | INFO     |   Auto-registering: policy_kernel_v4 (policy)
+2026-04-11 05:42:05,272 | atomos.boot          | INFO     |   Auto-registering: proof_engine (audit)
+2026-04-11 05:42:05,272 | atomos.boot          | INFO     |   Auto-registering: reality_action_engine (agent)
+2026-04-11 05:42:05,272 | atomos.boot          | INFO     |   Auto-registering: reality_control_council (agent)
+2026-04-11 05:42:05,272 | atomos.boot          | INFO     |   Auto-registering: replay_engine (audit)
+2026-04-11 05:42:05,272 | atomos.boot          | INFO     |   Auto-registering: resource_ledger (agent)
+2026-04-11 05:42:05,272 | atomos.boot          | INFO     |   Auto-registering: safety_gate (devops)
+2026-04-11 05:42:05,272 | atomos.boot          | INFO     |   Auto-registering: secure_execution_engine (agent)
+2026-04-11 05:42:05,272 | atomos.boot          | INFO     |   Auto-registering: semantic_firewall (agent)
+2026-04-11 05:42:05,272 | atomos.boot          | INFO     |   Auto-registering: state_machine (agent)
+2026-04-11 05:42:05,272 | atomos.boot          | INFO     |   Auto-registering: swarm (swarm)
+2026-04-11 05:42:05,272 | atomos.boot          | INFO     |   Auto-registering: system_mapper (agent)
+2026-04-11 05:42:05,272 | atomos.boot          | INFO     |   Auto-registering: taar_os (agent)
+2026-04-11 05:42:05,272 | atomos.boot          | INFO     |   Auto-registering: taar_v10 (agent)
+2026-04-11 05:42:05,272 | atomos.boot          | INFO     |   Auto-registering: taar_v10_1 (agent)
+2026-04-11 05:42:05,272 | atomos.boot          | INFO     |   Auto-registering: taar_v14 (control)
+2026-04-11 05:42:05,272 | atomos.boot          | INFO     |   Auto-registering: taar_v5 (agent)
+2026-04-11 05:42:05,273 | atomos.boot          | INFO     |   Auto-registering: taar_v6 (control)
+2026-04-11 05:42:05,273 | atomos.boot          | INFO     |   Auto-registering: taar_v8 (agent)
+2026-04-11 05:42:05,273 | atomos.boot          | INFO     |   Auto-registering: taar_v9 (control)
+2026-04-11 05:42:05,273 | atomos.boot          | INFO     |   Auto-registering: task_graph (agent)
+2026-04-11 05:42:05,273 | atomos.boot          | INFO     |   Auto-registering: task_market (agent)
+2026-04-11 05:42:05,273 | atomos.boot          | INFO     |   Auto-registering: tools_adapter (agent)
+2026-04-11 05:42:05,273 | atomos.boot          | INFO     |   Auto-registering: trusted_context (agent)
+2026-04-11 05:42:05,273 | atomos.boot          | INFO     |   Auto-registering: user_gateway (ui)
+2026-04-11 05:42:05,273 | atomos.boot          | INFO     |   Auto-registering: value_evaluator (agent)
+2026-04-11 05:42:05,273 | atomos.boot          | INFO     | 
+[PHASE 2] Booting service registry...
+2026-04-11 05:42:05,273 | atomos.registry      | INFO     | Boot order: memory → shell_tool → filesystem_tool → git_tool → devops_agent → ci_analyzer → patch_engine → swarm_engine → ollama_client → system_observer → metrics_collector → anomaly_detector → cli → aic_os → apex_execution_kernel → apex_runtime → audit_ledger → capability_system → civ_to_reality → civilization_council → civilization_evolution → civilization_memory → control_plane → control_plane_evolver → corp_budget_controller → corp_governance_board → corp_org_registry → corp_roi_tracker → corp_role_allocator → cross_economy_trade → distributed_memory → economic_memory → economy_coordinator → episodic_memory → execution_proof_engine → execution_sandbox → global_coordinator → global_episodic_memory → global_impact_memory → global_resource_market → gpu_control → immutable_audit_graph → infra_abstraction → langgraph_core → memory_hierarchy → meta_control_loop → meta_decision_engine → meta_policy_kernel → meta_proof_engine → mission_broker → mission_controller → mission_generator → mission_prioritizer → orchestrator → policy_consensus → policy_engine → policy_kernel → policy_kernel_v2 → policy_kernel_v3 → policy_kernel_v4 → proof_engine → reality_action_engine → reality_control_council → replay_engine → resource_ledger → safety_gate → secure_execution_engine → semantic_firewall → state_machine → swarm → system_mapper → taar_os → taar_v10 → taar_v10_1 → taar_v14 → taar_v5 → taar_v6 → taar_v8 → taar_v9 → task_graph → task_market → tools_adapter → trusted_context → user_gateway → value_evaluator
+2026-04-11 05:42:05,273 | atomos.registry      | INFO     |   Booting memory...
+2026-04-11 05:42:05,273 | atomos.registry      | INFO     |     ✅ memory (healthy)
+2026-04-11 05:42:05,274 | atomos.registry      | INFO     |   Booting shell_tool...
+2026-04-11 05:42:05,274 | atomos.tools.shell   | INFO     |   Shell tool ready
+2026-04-11 05:42:05,274 | atomos.registry      | INFO     |     ✅ shell_tool (healthy)
+2026-04-11 05:42:05,274 | atomos.registry      | INFO     |   Booting filesystem_tool...
+2026-04-11 05:42:05,274 | atomos.registry      | INFO     |     ✅ filesystem_tool (healthy)
+2026-04-11 05:42:05,274 | atomos.registry      | INFO     |   Booting git_tool...
+2026-04-11 05:42:05,274 | atomos.registry      | INFO     |     ✅ git_tool (healthy)
+2026-04-11 05:42:05,274 | atomos.registry      | INFO     |   Booting devops_agent...
+2026-04-11 05:42:05,274 | atomos.devops        | INFO     |   DevOps agent ready
+2026-04-11 05:42:05,274 | atomos.registry      | INFO     |     ✅ devops_agent (healthy)
+2026-04-11 05:42:05,274 | atomos.registry      | INFO     |   Booting ci_analyzer...
+2026-04-11 05:42:05,274 | atomos.devops        | INFO     |   CI analyzer ready
+2026-04-11 05:42:05,274 | atomos.registry      | INFO     |     ✅ ci_analyzer (healthy)
+2026-04-11 05:42:05,274 | atomos.registry      | INFO     |   Booting patch_engine...
+2026-04-11 05:42:05,274 | atomos.devops        | INFO     |   Patch engine ready
+2026-04-11 05:42:05,274 | atomos.registry      | INFO     |     ✅ patch_engine (healthy)
+2026-04-11 05:42:05,274 | atomos.registry      | INFO     |   Booting swarm_engine...
+2026-04-11 05:42:05,274 | atomos.swarm         | INFO     |   Swarm engine ready (max_workers=8)
+2026-04-11 05:42:05,274 | atomos.registry      | INFO     |     ✅ swarm_engine (healthy)
+2026-04-11 05:42:05,274 | atomos.registry      | INFO     |   Booting ollama_client...
+2026-04-11 05:42:05,280 | atomos.ollama        | INFO     |   Ollama ready: qwen2.5-coder-7b
+2026-04-11 05:42:05,280 | atomos.registry      | INFO     |     ✅ ollama_client (healthy)
+2026-04-11 05:42:05,280 | atomos.registry      | INFO     |   Booting system_observer...
+2026-04-11 05:42:05,280 | atomos.registry      | INFO     |     ✅ system_observer (healthy)
+2026-04-11 05:42:05,280 | atomos.registry      | INFO     |   Booting metrics_collector...
+2026-04-11 05:42:05,280 | atomos.registry      | INFO     |     ✅ metrics_collector (healthy)
+2026-04-11 05:42:05,280 | atomos.registry      | INFO     |   Booting anomaly_detector...
+2026-04-11 05:42:05,280 | atomos.observability | INFO     |   Anomaly detector calibrated
+2026-04-11 05:42:05,280 | atomos.registry      | INFO     |     ✅ anomaly_detector (healthy)
+2026-04-11 05:42:05,280 | atomos.registry      | INFO     |   Booting cli...
+2026-04-11 05:42:05,280 | atomos.ui.cli        | INFO     |   CLI ready
+2026-04-11 05:42:05,280 | atomos.registry      | INFO     |     ✅ cli (initialized)
+2026-04-11 05:42:05,280 | atomos.registry      | INFO     |   Booting aic_os...
+2026-04-11 05:42:05,281 | atomos.registry      | ERROR    |     ❌ aic_os failed to boot: No module named 'corp_governance_board'
+2026-04-11 05:43:41,389 | atomos.boot          | INFO     | ============================================================
+2026-04-11 05:43:41,389 | atomos.boot          | INFO     | ATOM OS v15 — BOOT SEQUENCE
+2026-04-11 05:43:41,389 | atomos.boot          | INFO     | ============================================================
+2026-04-11 05:43:41,389 | atomos.boot          | INFO     | 
+[PHASE 0] Loading configuration...
+2026-04-11 05:43:41,390 | atomos.boot          | INFO     |   Config loaded: []
+2026-04-11 05:43:41,390 | atomos.boot          | INFO     | 
+[PHASE 1] Module discovery & registration...
+2026-04-11 05:43:41,433 | atomos.boot          | INFO     |   Auto-registering: aic_os (agent)
+2026-04-11 05:43:41,433 | atomos.boot          | INFO     |   Auto-registering: apex_execution_kernel (agent)
+2026-04-11 05:43:41,433 | atomos.boot          | INFO     |   Auto-registering: apex_runtime (agent)
+2026-04-11 05:43:41,433 | atomos.boot          | INFO     |   Auto-registering: audit_ledger (audit)
+2026-04-11 05:43:41,433 | atomos.boot          | INFO     |   Auto-registering: capability_system (agent)
+2026-04-11 05:43:41,433 | atomos.boot          | INFO     |   Auto-registering: civ_to_reality (agent)
+2026-04-11 05:43:41,434 | atomos.boot          | INFO     |   Auto-registering: civilization_council (agent)
+2026-04-11 05:43:41,434 | atomos.boot          | INFO     |   Auto-registering: civilization_evolution (agent)
+2026-04-11 05:43:41,434 | atomos.boot          | INFO     |   Auto-registering: civilization_memory (agent)
+2026-04-11 05:43:41,434 | atomos.boot          | INFO     |   Auto-registering: control_plane (control)
+2026-04-11 05:43:41,434 | atomos.boot          | INFO     |   Auto-registering: control_plane_evolver (agent)
+2026-04-11 05:43:41,434 | atomos.boot          | INFO     |   Auto-registering: corp_budget_controller (agent)
+2026-04-11 05:43:41,434 | atomos.boot          | INFO     |   Auto-registering: corp_governance_board (agent)
+2026-04-11 05:43:41,434 | atomos.boot          | INFO     |   Auto-registering: corp_org_registry (agent)
+2026-04-11 05:43:41,434 | atomos.boot          | INFO     |   Auto-registering: corp_roi_tracker (agent)
+2026-04-11 05:43:41,434 | atomos.boot          | INFO     |   Auto-registering: corp_role_allocator (agent)
+2026-04-11 05:43:41,434 | atomos.boot          | INFO     |   Auto-registering: cross_economy_trade (agent)
+2026-04-11 05:43:41,434 | atomos.boot          | INFO     |   Auto-registering: distributed_memory (agent)
+2026-04-11 05:43:41,434 | atomos.boot          | INFO     |   Auto-registering: economic_memory (agent)
+2026-04-11 05:43:41,434 | atomos.boot          | INFO     |   Auto-registering: economy_coordinator (agent)
+2026-04-11 05:43:41,434 | atomos.boot          | INFO     |   Auto-registering: episodic_memory (memory)
+2026-04-11 05:43:41,434 | atomos.boot          | INFO     |   Auto-registering: execution_proof_engine (audit)
+2026-04-11 05:43:41,434 | atomos.boot          | INFO     |   Auto-registering: execution_sandbox (agent)
+2026-04-11 05:43:41,434 | atomos.boot          | INFO     |   Auto-registering: global_coordinator (agent)
+2026-04-11 05:43:41,434 | atomos.boot          | INFO     |   Auto-registering: global_episodic_memory (agent)
+2026-04-11 05:43:41,435 | atomos.boot          | INFO     |   Auto-registering: global_impact_memory (agent)
+2026-04-11 05:43:41,435 | atomos.boot          | INFO     |   Auto-registering: global_resource_market (agent)
+2026-04-11 05:43:41,435 | atomos.boot          | INFO     |   Auto-registering: gpu_control (agent)
+2026-04-11 05:43:41,435 | atomos.boot          | INFO     |   Auto-registering: immutable_audit_graph (audit)
+2026-04-11 05:43:41,435 | atomos.boot          | INFO     |   Auto-registering: infra_abstraction (agent)
+2026-04-11 05:43:41,435 | atomos.boot          | INFO     |   Auto-registering: langgraph_core (agent)
+2026-04-11 05:43:41,435 | atomos.boot          | INFO     |   Auto-registering: memory_hierarchy (memory)
+2026-04-11 05:43:41,435 | atomos.boot          | INFO     |   Auto-registering: meta_control_loop (agent)
+2026-04-11 05:43:41,435 | atomos.boot          | INFO     |   Auto-registering: meta_decision_engine (agent)
+2026-04-11 05:43:41,435 | atomos.boot          | INFO     |   Auto-registering: meta_policy_kernel (agent)
+2026-04-11 05:43:41,435 | atomos.boot          | INFO     |   Auto-registering: meta_proof_engine (agent)
+2026-04-11 05:43:41,435 | atomos.boot          | INFO     |   Auto-registering: mission_broker (agent)
+2026-04-11 05:43:41,435 | atomos.boot          | INFO     |   Auto-registering: mission_controller (mission)
+2026-04-11 05:43:41,435 | atomos.boot          | INFO     |   Auto-registering: mission_generator (mission)
+2026-04-11 05:43:41,435 | atomos.boot          | INFO     |   Auto-registering: mission_prioritizer (mission)
+2026-04-11 05:43:41,435 | atomos.boot          | INFO     |   Auto-registering: orchestrator (agent)
+2026-04-11 05:43:41,435 | atomos.boot          | INFO     |   Auto-registering: policy_consensus (agent)
+2026-04-11 05:43:41,435 | atomos.boot          | INFO     |   Auto-registering: policy_engine (agent)
+2026-04-11 05:43:41,435 | atomos.boot          | INFO     |   Auto-registering: policy_kernel (agent)
+2026-04-11 05:43:41,435 | atomos.boot          | INFO     |   Auto-registering: policy_kernel_v2 (policy)
+2026-04-11 05:43:41,436 | atomos.boot          | INFO     |   Auto-registering: policy_kernel_v3 (policy)
+2026-04-11 05:43:41,436 | atomos.boot          | INFO     |   Auto-registering: policy_kernel_v4 (policy)
+2026-04-11 05:43:41,436 | atomos.boot          | INFO     |   Auto-registering: proof_engine (audit)
+2026-04-11 05:43:41,436 | atomos.boot          | INFO     |   Auto-registering: reality_action_engine (agent)
+2026-04-11 05:43:41,436 | atomos.boot          | INFO     |   Auto-registering: reality_control_council (agent)
+2026-04-11 05:43:41,436 | atomos.boot          | INFO     |   Auto-registering: replay_engine (audit)
+2026-04-11 05:43:41,436 | atomos.boot          | INFO     |   Auto-registering: resource_ledger (agent)
+2026-04-11 05:43:41,436 | atomos.boot          | INFO     |   Auto-registering: safety_gate (devops)
+2026-04-11 05:43:41,436 | atomos.boot          | INFO     |   Auto-registering: secure_execution_engine (agent)
+2026-04-11 05:43:41,436 | atomos.boot          | INFO     |   Auto-registering: semantic_firewall (agent)
+2026-04-11 05:43:41,436 | atomos.boot          | INFO     |   Auto-registering: state_machine (agent)
+2026-04-11 05:43:41,436 | atomos.boot          | INFO     |   Auto-registering: swarm (swarm)
+2026-04-11 05:43:41,436 | atomos.boot          | INFO     |   Auto-registering: system_mapper (agent)
+2026-04-11 05:43:41,436 | atomos.boot          | INFO     |   Auto-registering: taar_os (agent)
+2026-04-11 05:43:41,436 | atomos.boot          | INFO     |   Auto-registering: taar_v10 (agent)
+2026-04-11 05:43:41,436 | atomos.boot          | INFO     |   Auto-registering: taar_v10_1 (agent)
+2026-04-11 05:43:41,436 | atomos.boot          | INFO     |   Auto-registering: taar_v14 (control)
+2026-04-11 05:43:41,436 | atomos.boot          | INFO     |   Auto-registering: taar_v5 (agent)
+2026-04-11 05:43:41,436 | atomos.boot          | INFO     |   Auto-registering: taar_v6 (control)
+2026-04-11 05:43:41,437 | atomos.boot          | INFO     |   Auto-registering: taar_v8 (agent)
+2026-04-11 05:43:41,437 | atomos.boot          | INFO     |   Auto-registering: taar_v9 (control)
+2026-04-11 05:43:41,437 | atomos.boot          | INFO     |   Auto-registering: task_graph (agent)
+2026-04-11 05:43:41,437 | atomos.boot          | INFO     |   Auto-registering: task_market (agent)
+2026-04-11 05:43:41,437 | atomos.boot          | INFO     |   Auto-registering: tools_adapter (agent)
+2026-04-11 05:43:41,437 | atomos.boot          | INFO     |   Auto-registering: trusted_context (agent)
+2026-04-11 05:43:41,437 | atomos.boot          | INFO     |   Auto-registering: user_gateway (ui)
+2026-04-11 05:43:41,437 | atomos.boot          | INFO     |   Auto-registering: value_evaluator (agent)
+2026-04-11 05:43:41,437 | atomos.boot          | INFO     | 
+[PHASE 2] Booting service registry...
+2026-04-11 05:43:41,437 | atomos.registry      | INFO     | Boot order: memory → shell_tool → filesystem_tool → git_tool → devops_agent → ci_analyzer → patch_engine → swarm_engine → ollama_client → system_observer → metrics_collector → anomaly_detector → cli → aic_os → apex_execution_kernel → apex_runtime → audit_ledger → capability_system → civ_to_reality → civilization_council → civilization_evolution → civilization_memory → control_plane → control_plane_evolver → corp_budget_controller → corp_governance_board → corp_org_registry → corp_roi_tracker → corp_role_allocator → cross_economy_trade → distributed_memory → economic_memory → economy_coordinator → episodic_memory → execution_proof_engine → execution_sandbox → global_coordinator → global_episodic_memory → global_impact_memory → global_resource_market → gpu_control → immutable_audit_graph → infra_abstraction → langgraph_core → memory_hierarchy → meta_control_loop → meta_decision_engine → meta_policy_kernel → meta_proof_engine → mission_broker → mission_controller → mission_generator → mission_prioritizer → orchestrator → policy_consensus → policy_engine → policy_kernel → policy_kernel_v2 → policy_kernel_v3 → policy_kernel_v4 → proof_engine → reality_action_engine → reality_control_council → replay_engine → resource_ledger → safety_gate → secure_execution_engine → semantic_firewall → state_machine → swarm → system_mapper → taar_os → taar_v10 → taar_v10_1 → taar_v14 → taar_v5 → taar_v6 → taar_v8 → taar_v9 → task_graph → task_market → tools_adapter → trusted_context → user_gateway → value_evaluator
+2026-04-11 05:43:41,437 | atomos.registry      | INFO     |   Booting memory...
+2026-04-11 05:43:41,437 | atomos.registry      | INFO     |     ✅ memory (healthy)
+2026-04-11 05:43:41,437 | atomos.registry      | INFO     |   Booting shell_tool...
+2026-04-11 05:43:41,437 | atomos.tools.shell   | INFO     |   Shell tool ready
+2026-04-11 05:43:41,437 | atomos.registry      | INFO     |     ✅ shell_tool (healthy)
+2026-04-11 05:43:41,438 | atomos.registry      | INFO     |   Booting filesystem_tool...
+2026-04-11 05:43:41,438 | atomos.registry      | INFO     |     ✅ filesystem_tool (healthy)
+2026-04-11 05:43:41,438 | atomos.registry      | INFO     |   Booting git_tool...
+2026-04-11 05:43:41,438 | atomos.registry      | INFO     |     ✅ git_tool (healthy)
+2026-04-11 05:43:41,438 | atomos.registry      | INFO     |   Booting devops_agent...
+2026-04-11 05:43:41,438 | atomos.devops        | INFO     |   DevOps agent ready
+2026-04-11 05:43:41,438 | atomos.registry      | INFO     |     ✅ devops_agent (healthy)
+2026-04-11 05:43:41,438 | atomos.registry      | INFO     |   Booting ci_analyzer...
+2026-04-11 05:43:41,438 | atomos.devops        | INFO     |   CI analyzer ready
+2026-04-11 05:43:41,438 | atomos.registry      | INFO     |     ✅ ci_analyzer (healthy)
+2026-04-11 05:43:41,438 | atomos.registry      | INFO     |   Booting patch_engine...
+2026-04-11 05:43:41,438 | atomos.devops        | INFO     |   Patch engine ready
+2026-04-11 05:43:41,438 | atomos.registry      | INFO     |     ✅ patch_engine (healthy)
+2026-04-11 05:43:41,438 | atomos.registry      | INFO     |   Booting swarm_engine...
+2026-04-11 05:43:41,438 | atomos.swarm         | INFO     |   Swarm engine ready (max_workers=8)
+2026-04-11 05:43:41,438 | atomos.registry      | INFO     |     ✅ swarm_engine (healthy)
+2026-04-11 05:43:41,438 | atomos.registry      | INFO     |   Booting ollama_client...
+2026-04-11 05:43:41,443 | atomos.ollama        | INFO     |   Ollama ready: qwen2.5-coder-7b
+2026-04-11 05:43:41,443 | atomos.registry      | INFO     |     ✅ ollama_client (healthy)
+2026-04-11 05:43:41,443 | atomos.registry      | INFO     |   Booting system_observer...
+2026-04-11 05:43:41,443 | atomos.registry      | INFO     |     ✅ system_observer (healthy)
+2026-04-11 05:43:41,443 | atomos.registry      | INFO     |   Booting metrics_collector...
+2026-04-11 05:43:41,444 | atomos.registry      | INFO     |     ✅ metrics_collector (healthy)
+2026-04-11 05:43:41,444 | atomos.registry      | INFO     |   Booting anomaly_detector...
+2026-04-11 05:43:41,444 | atomos.observability | INFO     |   Anomaly detector calibrated
+2026-04-11 05:43:41,444 | atomos.registry      | INFO     |     ✅ anomaly_detector (healthy)
+2026-04-11 05:43:41,444 | atomos.registry      | INFO     |   Booting cli...
+2026-04-11 05:43:41,444 | atomos.ui.cli        | INFO     |   CLI ready
+2026-04-11 05:43:41,444 | atomos.registry      | INFO     |     ✅ cli (initialized)
+2026-04-11 05:43:41,444 | atomos.registry      | INFO     |   Booting aic_os...
+2026-04-11 05:43:41,451 | atomos.registry      | INFO     |     ✅ aic_os (initialized)
+2026-04-11 05:43:41,451 | atomos.registry      | INFO     |   Booting apex_execution_kernel...
+2026-04-11 05:43:41,458 | atomos.registry      | INFO     |     ✅ apex_execution_kernel (initialized)
+2026-04-11 05:43:41,459 | atomos.registry      | INFO     |   Booting apex_runtime...
+2026-04-11 05:43:41,464 | atomos.registry      | ERROR    |     ❌ apex_runtime failed to boot: No module named 'agents'
+2026-04-11 05:43:57,395 | atomos.boot          | INFO     | ============================================================
+2026-04-11 05:43:57,395 | atomos.boot          | INFO     | ATOM OS v15 — BOOT SEQUENCE
+2026-04-11 05:43:57,395 | atomos.boot          | INFO     | ============================================================
+2026-04-11 05:43:57,395 | atomos.boot          | INFO     | 
+[PHASE 0] Loading configuration...
+2026-04-11 05:43:57,395 | atomos.boot          | INFO     |   Config loaded: []
+2026-04-11 05:43:57,395 | atomos.boot          | INFO     | 
+[PHASE 1] Module discovery & registration...
+2026-04-11 05:43:57,439 | atomos.boot          | INFO     |   Auto-registering: aic_os (agent)
+2026-04-11 05:43:57,439 | atomos.boot          | INFO     |   Auto-registering: apex_execution_kernel (agent)
+2026-04-11 05:43:57,439 | atomos.boot          | INFO     |   Auto-registering: apex_runtime (agent)
+2026-04-11 05:43:57,439 | atomos.boot          | INFO     |   Auto-registering: audit_ledger (audit)
+2026-04-11 05:43:57,439 | atomos.boot          | INFO     |   Auto-registering: capability_system (agent)
+2026-04-11 05:43:57,439 | atomos.boot          | INFO     |   Auto-registering: civ_to_reality (agent)
+2026-04-11 05:43:57,439 | atomos.boot          | INFO     |   Auto-registering: civilization_council (agent)
+2026-04-11 05:43:57,439 | atomos.boot          | INFO     |   Auto-registering: civilization_evolution (agent)
+2026-04-11 05:43:57,439 | atomos.boot          | INFO     |   Auto-registering: civilization_memory (agent)
+2026-04-11 05:43:57,440 | atomos.boot          | INFO     |   Auto-registering: control_plane (control)
+2026-04-11 05:43:57,440 | atomos.boot          | INFO     |   Auto-registering: control_plane_evolver (agent)
+2026-04-11 05:43:57,440 | atomos.boot          | INFO     |   Auto-registering: corp_budget_controller (agent)
+2026-04-11 05:43:57,440 | atomos.boot          | INFO     |   Auto-registering: corp_governance_board (agent)
+2026-04-11 05:43:57,440 | atomos.boot          | INFO     |   Auto-registering: corp_org_registry (agent)
+2026-04-11 05:43:57,440 | atomos.boot          | INFO     |   Auto-registering: corp_roi_tracker (agent)
+2026-04-11 05:43:57,440 | atomos.boot          | INFO     |   Auto-registering: corp_role_allocator (agent)
+2026-04-11 05:43:57,440 | atomos.boot          | INFO     |   Auto-registering: cross_economy_trade (agent)
+2026-04-11 05:43:57,440 | atomos.boot          | INFO     |   Auto-registering: distributed_memory (agent)
+2026-04-11 05:43:57,440 | atomos.boot          | INFO     |   Auto-registering: economic_memory (agent)
+2026-04-11 05:43:57,440 | atomos.boot          | INFO     |   Auto-registering: economy_coordinator (agent)
+2026-04-11 05:43:57,440 | atomos.boot          | INFO     |   Auto-registering: episodic_memory (memory)
+2026-04-11 05:43:57,440 | atomos.boot          | INFO     |   Auto-registering: execution_proof_engine (audit)
+2026-04-11 05:43:57,440 | atomos.boot          | INFO     |   Auto-registering: execution_sandbox (agent)
+2026-04-11 05:43:57,440 | atomos.boot          | INFO     |   Auto-registering: global_coordinator (agent)
+2026-04-11 05:43:57,440 | atomos.boot          | INFO     |   Auto-registering: global_episodic_memory (agent)
+2026-04-11 05:43:57,440 | atomos.boot          | INFO     |   Auto-registering: global_impact_memory (agent)
+2026-04-11 05:43:57,440 | atomos.boot          | INFO     |   Auto-registering: global_resource_market (agent)
+2026-04-11 05:43:57,440 | atomos.boot          | INFO     |   Auto-registering: gpu_control (agent)
+2026-04-11 05:43:57,441 | atomos.boot          | INFO     |   Auto-registering: immutable_audit_graph (audit)
+2026-04-11 05:43:57,441 | atomos.boot          | INFO     |   Auto-registering: infra_abstraction (agent)
+2026-04-11 05:43:57,441 | atomos.boot          | INFO     |   Auto-registering: langgraph_core (agent)
+2026-04-11 05:43:57,441 | atomos.boot          | INFO     |   Auto-registering: memory_hierarchy (memory)
+2026-04-11 05:43:57,441 | atomos.boot          | INFO     |   Auto-registering: meta_control_loop (agent)
+2026-04-11 05:43:57,441 | atomos.boot          | INFO     |   Auto-registering: meta_decision_engine (agent)
+2026-04-11 05:43:57,441 | atomos.boot          | INFO     |   Auto-registering: meta_policy_kernel (agent)
+2026-04-11 05:43:57,441 | atomos.boot          | INFO     |   Auto-registering: meta_proof_engine (agent)
+2026-04-11 05:43:57,441 | atomos.boot          | INFO     |   Auto-registering: mission_broker (agent)
+2026-04-11 05:43:57,441 | atomos.boot          | INFO     |   Auto-registering: mission_controller (mission)
+2026-04-11 05:43:57,441 | atomos.boot          | INFO     |   Auto-registering: mission_generator (mission)
+2026-04-11 05:43:57,441 | atomos.boot          | INFO     |   Auto-registering: mission_prioritizer (mission)
+2026-04-11 05:43:57,441 | atomos.boot          | INFO     |   Auto-registering: orchestrator (agent)
+2026-04-11 05:43:57,441 | atomos.boot          | INFO     |   Auto-registering: policy_consensus (agent)
+2026-04-11 05:43:57,441 | atomos.boot          | INFO     |   Auto-registering: policy_engine (agent)
+2026-04-11 05:43:57,441 | atomos.boot          | INFO     |   Auto-registering: policy_kernel (agent)
+2026-04-11 05:43:57,441 | atomos.boot          | INFO     |   Auto-registering: policy_kernel_v2 (policy)
+2026-04-11 05:43:57,441 | atomos.boot          | INFO     |   Auto-registering: policy_kernel_v3 (policy)
+2026-04-11 05:43:57,441 | atomos.boot          | INFO     |   Auto-registering: policy_kernel_v4 (policy)
+2026-04-11 05:43:57,442 | atomos.boot          | INFO     |   Auto-registering: proof_engine (audit)
+2026-04-11 05:43:57,442 | atomos.boot          | INFO     |   Auto-registering: reality_action_engine (agent)
+2026-04-11 05:43:57,442 | atomos.boot          | INFO     |   Auto-registering: reality_control_council (agent)
+2026-04-11 05:43:57,442 | atomos.boot          | INFO     |   Auto-registering: replay_engine (audit)
+2026-04-11 05:43:57,442 | atomos.boot          | INFO     |   Auto-registering: resource_ledger (agent)
+2026-04-11 05:43:57,442 | atomos.boot          | INFO     |   Auto-registering: safety_gate (devops)
+2026-04-11 05:43:57,442 | atomos.boot          | INFO     |   Auto-registering: secure_execution_engine (agent)
+2026-04-11 05:43:57,442 | atomos.boot          | INFO     |   Auto-registering: semantic_firewall (agent)
+2026-04-11 05:43:57,442 | atomos.boot          | INFO     |   Auto-registering: state_machine (agent)
+2026-04-11 05:43:57,442 | atomos.boot          | INFO     |   Auto-registering: swarm (swarm)
+2026-04-11 05:43:57,442 | atomos.boot          | INFO     |   Auto-registering: system_mapper (agent)
+2026-04-11 05:43:57,442 | atomos.boot          | INFO     |   Auto-registering: taar_os (agent)
+2026-04-11 05:43:57,442 | atomos.boot          | INFO     |   Auto-registering: taar_v10 (agent)
+2026-04-11 05:43:57,442 | atomos.boot          | INFO     |   Auto-registering: taar_v10_1 (agent)
+2026-04-11 05:43:57,442 | atomos.boot          | INFO     |   Auto-registering: taar_v14 (control)
+2026-04-11 05:43:57,442 | atomos.boot          | INFO     |   Auto-registering: taar_v5 (agent)
+2026-04-11 05:43:57,442 | atomos.boot          | INFO     |   Auto-registering: taar_v6 (control)
+2026-04-11 05:43:57,442 | atomos.boot          | INFO     |   Auto-registering: taar_v8 (agent)
+2026-04-11 05:43:57,442 | atomos.boot          | INFO     |   Auto-registering: taar_v9 (control)
+2026-04-11 05:43:57,443 | atomos.boot          | INFO     |   Auto-registering: task_graph (agent)
+2026-04-11 05:43:57,443 | atomos.boot          | INFO     |   Auto-registering: task_market (agent)
+2026-04-11 05:43:57,443 | atomos.boot          | INFO     |   Auto-registering: tools_adapter (agent)
+2026-04-11 05:43:57,443 | atomos.boot          | INFO     |   Auto-registering: trusted_context (agent)
+2026-04-11 05:43:57,443 | atomos.boot          | INFO     |   Auto-registering: user_gateway (ui)
+2026-04-11 05:43:57,443 | atomos.boot          | INFO     |   Auto-registering: value_evaluator (agent)
+2026-04-11 05:43:57,443 | atomos.boot          | INFO     | 
+[PHASE 2] Booting service registry...
+2026-04-11 05:43:57,443 | atomos.registry      | INFO     | Boot order: memory → shell_tool → filesystem_tool → git_tool → devops_agent → ci_analyzer → patch_engine → swarm_engine → ollama_client → system_observer → metrics_collector → anomaly_detector → cli → aic_os → apex_execution_kernel → apex_runtime → audit_ledger → capability_system → civ_to_reality → civilization_council → civilization_evolution → civilization_memory → control_plane → control_plane_evolver → corp_budget_controller → corp_governance_board → corp_org_registry → corp_roi_tracker → corp_role_allocator → cross_economy_trade → distributed_memory → economic_memory → economy_coordinator → episodic_memory → execution_proof_engine → execution_sandbox → global_coordinator → global_episodic_memory → global_impact_memory → global_resource_market → gpu_control → immutable_audit_graph → infra_abstraction → langgraph_core → memory_hierarchy → meta_control_loop → meta_decision_engine → meta_policy_kernel → meta_proof_engine → mission_broker → mission_controller → mission_generator → mission_prioritizer → orchestrator → policy_consensus → policy_engine → policy_kernel → policy_kernel_v2 → policy_kernel_v3 → policy_kernel_v4 → proof_engine → reality_action_engine → reality_control_council → replay_engine → resource_ledger → safety_gate → secure_execution_engine → semantic_firewall → state_machine → swarm → system_mapper → taar_os → taar_v10 → taar_v10_1 → taar_v14 → taar_v5 → taar_v6 → taar_v8 → taar_v9 → task_graph → task_market → tools_adapter → trusted_context → user_gateway → value_evaluator
+2026-04-11 05:43:57,443 | atomos.registry      | INFO     |   Booting memory...
+2026-04-11 05:43:57,443 | atomos.registry      | INFO     |     ✅ memory (healthy)
+2026-04-11 05:43:57,443 | atomos.registry      | INFO     |   Booting shell_tool...
+2026-04-11 05:43:57,443 | atomos.tools.shell   | INFO     |   Shell tool ready
+2026-04-11 05:43:57,443 | atomos.registry      | INFO     |     ✅ shell_tool (healthy)
+2026-04-11 05:43:57,443 | atomos.registry      | INFO     |   Booting filesystem_tool...
+2026-04-11 05:43:57,443 | atomos.registry      | INFO     |     ✅ filesystem_tool (healthy)
+2026-04-11 05:43:57,443 | atomos.registry      | INFO     |   Booting git_tool...
+2026-04-11 05:43:57,443 | atomos.registry      | INFO     |     ✅ git_tool (healthy)
+2026-04-11 05:43:57,444 | atomos.registry      | INFO     |   Booting devops_agent...
+2026-04-11 05:43:57,444 | atomos.devops        | INFO     |   DevOps agent ready
+2026-04-11 05:43:57,444 | atomos.registry      | INFO     |     ✅ devops_agent (healthy)
+2026-04-11 05:43:57,444 | atomos.registry      | INFO     |   Booting ci_analyzer...
+2026-04-11 05:43:57,444 | atomos.devops        | INFO     |   CI analyzer ready
+2026-04-11 05:43:57,444 | atomos.registry      | INFO     |     ✅ ci_analyzer (healthy)
+2026-04-11 05:43:57,444 | atomos.registry      | INFO     |   Booting patch_engine...
+2026-04-11 05:43:57,444 | atomos.devops        | INFO     |   Patch engine ready
+2026-04-11 05:43:57,444 | atomos.registry      | INFO     |     ✅ patch_engine (healthy)
+2026-04-11 05:43:57,444 | atomos.registry      | INFO     |   Booting swarm_engine...
+2026-04-11 05:43:57,444 | atomos.swarm         | INFO     |   Swarm engine ready (max_workers=8)
+2026-04-11 05:43:57,444 | atomos.registry      | INFO     |     ✅ swarm_engine (healthy)
+2026-04-11 05:43:57,444 | atomos.registry      | INFO     |   Booting ollama_client...
+2026-04-11 05:43:57,449 | atomos.ollama        | INFO     |   Ollama ready: qwen2.5-coder-7b
+2026-04-11 05:43:57,449 | atomos.registry      | INFO     |     ✅ ollama_client (healthy)
+2026-04-11 05:43:57,449 | atomos.registry      | INFO     |   Booting system_observer...
+2026-04-11 05:43:57,449 | atomos.registry      | INFO     |     ✅ system_observer (healthy)
+2026-04-11 05:43:57,449 | atomos.registry      | INFO     |   Booting metrics_collector...
+2026-04-11 05:43:57,449 | atomos.registry      | INFO     |     ✅ metrics_collector (healthy)
+2026-04-11 05:43:57,449 | atomos.registry      | INFO     |   Booting anomaly_detector...
+2026-04-11 05:43:57,449 | atomos.observability | INFO     |   Anomaly detector calibrated
+2026-04-11 05:43:57,450 | atomos.registry      | INFO     |     ✅ anomaly_detector (healthy)
+2026-04-11 05:43:57,450 | atomos.registry      | INFO     |   Booting cli...
+2026-04-11 05:43:57,450 | atomos.ui.cli        | INFO     |   CLI ready
+2026-04-11 05:43:57,450 | atomos.registry      | INFO     |     ✅ cli (initialized)
+2026-04-11 05:43:57,450 | atomos.registry      | INFO     |   Booting aic_os...
+2026-04-11 05:43:57,457 | atomos.registry      | INFO     |     ✅ aic_os (initialized)
+2026-04-11 05:43:57,457 | atomos.registry      | INFO     |   Booting apex_execution_kernel...
+2026-04-11 05:43:57,462 | atomos.registry      | INFO     |     ✅ apex_execution_kernel (initialized)
+2026-04-11 05:43:57,463 | atomos.registry      | INFO     |   Booting apex_runtime...
+2026-04-11 05:43:57,467 | atomos.registry      | ERROR    |     ❌ apex_runtime failed to boot: No module named 'agents'
+2026-04-11 05:44:22,126 | atomos.boot          | INFO     | ============================================================
+2026-04-11 05:44:22,126 | atomos.boot          | INFO     | ATOM OS v15 — BOOT SEQUENCE
+2026-04-11 05:44:22,127 | atomos.boot          | INFO     | ============================================================
+2026-04-11 05:44:22,127 | atomos.boot          | INFO     | 
+[PHASE 0] Loading configuration...
+2026-04-11 05:44:22,127 | atomos.boot          | INFO     |   Config loaded: []
+2026-04-11 05:44:22,127 | atomos.boot          | INFO     | 
+[PHASE 1] Module discovery & registration...
+2026-04-11 05:44:22,170 | atomos.boot          | INFO     |   Auto-registering: aic_os (agent)
+2026-04-11 05:44:22,171 | atomos.boot          | INFO     |   Auto-registering: apex_execution_kernel (agent)
+2026-04-11 05:44:22,171 | atomos.boot          | INFO     |   Auto-registering: apex_runtime (agent)
+2026-04-11 05:44:22,171 | atomos.boot          | INFO     |   Auto-registering: audit_ledger (audit)
+2026-04-11 05:44:22,171 | atomos.boot          | INFO     |   Auto-registering: capability_system (agent)
+2026-04-11 05:44:22,171 | atomos.boot          | INFO     |   Auto-registering: civ_to_reality (agent)
+2026-04-11 05:44:22,171 | atomos.boot          | INFO     |   Auto-registering: civilization_council (agent)
+2026-04-11 05:44:22,171 | atomos.boot          | INFO     |   Auto-registering: civilization_evolution (agent)
+2026-04-11 05:44:22,171 | atomos.boot          | INFO     |   Auto-registering: civilization_memory (agent)
+2026-04-11 05:44:22,171 | atomos.boot          | INFO     |   Auto-registering: control_plane (control)
+2026-04-11 05:44:22,171 | atomos.boot          | INFO     |   Auto-registering: control_plane_evolver (agent)
+2026-04-11 05:44:22,171 | atomos.boot          | INFO     |   Auto-registering: corp_budget_controller (agent)
+2026-04-11 05:44:22,171 | atomos.boot          | INFO     |   Auto-registering: corp_governance_board (agent)
+2026-04-11 05:44:22,171 | atomos.boot          | INFO     |   Auto-registering: corp_org_registry (agent)
+2026-04-11 05:44:22,171 | atomos.boot          | INFO     |   Auto-registering: corp_roi_tracker (agent)
+2026-04-11 05:44:22,171 | atomos.boot          | INFO     |   Auto-registering: corp_role_allocator (agent)
+2026-04-11 05:44:22,171 | atomos.boot          | INFO     |   Auto-registering: cross_economy_trade (agent)
+2026-04-11 05:44:22,172 | atomos.boot          | INFO     |   Auto-registering: distributed_memory (agent)
+2026-04-11 05:44:22,172 | atomos.boot          | INFO     |   Auto-registering: economic_memory (agent)
+2026-04-11 05:44:22,172 | atomos.boot          | INFO     |   Auto-registering: economy_coordinator (agent)
+2026-04-11 05:44:22,172 | atomos.boot          | INFO     |   Auto-registering: episodic_memory (memory)
+2026-04-11 05:44:22,172 | atomos.boot          | INFO     |   Auto-registering: execution_proof_engine (audit)
+2026-04-11 05:44:22,172 | atomos.boot          | INFO     |   Auto-registering: execution_sandbox (agent)
+2026-04-11 05:44:22,172 | atomos.boot          | INFO     |   Auto-registering: global_coordinator (agent)
+2026-04-11 05:44:22,172 | atomos.boot          | INFO     |   Auto-registering: global_episodic_memory (agent)
+2026-04-11 05:44:22,172 | atomos.boot          | INFO     |   Auto-registering: global_impact_memory (agent)
+2026-04-11 05:44:22,172 | atomos.boot          | INFO     |   Auto-registering: global_resource_market (agent)
+2026-04-11 05:44:22,172 | atomos.boot          | INFO     |   Auto-registering: gpu_control (agent)
+2026-04-11 05:44:22,172 | atomos.boot          | INFO     |   Auto-registering: immutable_audit_graph (audit)
+2026-04-11 05:44:22,172 | atomos.boot          | INFO     |   Auto-registering: infra_abstraction (agent)
+2026-04-11 05:44:22,172 | atomos.boot          | INFO     |   Auto-registering: langgraph_core (agent)
+2026-04-11 05:44:22,172 | atomos.boot          | INFO     |   Auto-registering: memory_hierarchy (memory)
+2026-04-11 05:44:22,172 | atomos.boot          | INFO     |   Auto-registering: meta_control_loop (agent)
+2026-04-11 05:44:22,172 | atomos.boot          | INFO     |   Auto-registering: meta_decision_engine (agent)
+2026-04-11 05:44:22,172 | atomos.boot          | INFO     |   Auto-registering: meta_policy_kernel (agent)
+2026-04-11 05:44:22,172 | atomos.boot          | INFO     |   Auto-registering: meta_proof_engine (agent)
+2026-04-11 05:44:22,173 | atomos.boot          | INFO     |   Auto-registering: mission_broker (agent)
+2026-04-11 05:44:22,173 | atomos.boot          | INFO     |   Auto-registering: mission_controller (mission)
+2026-04-11 05:44:22,173 | atomos.boot          | INFO     |   Auto-registering: mission_generator (mission)
+2026-04-11 05:44:22,173 | atomos.boot          | INFO     |   Auto-registering: mission_prioritizer (mission)
+2026-04-11 05:44:22,173 | atomos.boot          | INFO     |   Auto-registering: orchestrator (agent)
+2026-04-11 05:44:22,173 | atomos.boot          | INFO     |   Auto-registering: policy_consensus (agent)
+2026-04-11 05:44:22,173 | atomos.boot          | INFO     |   Auto-registering: policy_engine (agent)
+2026-04-11 05:44:22,173 | atomos.boot          | INFO     |   Auto-registering: policy_kernel (agent)
+2026-04-11 05:44:22,173 | atomos.boot          | INFO     |   Auto-registering: policy_kernel_v2 (policy)
+2026-04-11 05:44:22,173 | atomos.boot          | INFO     |   Auto-registering: policy_kernel_v3 (policy)
+2026-04-11 05:44:22,173 | atomos.boot          | INFO     |   Auto-registering: policy_kernel_v4 (policy)
+2026-04-11 05:44:22,173 | atomos.boot          | INFO     |   Auto-registering: proof_engine (audit)
+2026-04-11 05:44:22,173 | atomos.boot          | INFO     |   Auto-registering: reality_action_engine (agent)
+2026-04-11 05:44:22,173 | atomos.boot          | INFO     |   Auto-registering: reality_control_council (agent)
+2026-04-11 05:44:22,173 | atomos.boot          | INFO     |   Auto-registering: replay_engine (audit)
+2026-04-11 05:44:22,173 | atomos.boot          | INFO     |   Auto-registering: resource_ledger (agent)
+2026-04-11 05:44:22,173 | atomos.boot          | INFO     |   Auto-registering: safety_gate (devops)
+2026-04-11 05:44:22,173 | atomos.boot          | INFO     |   Auto-registering: secure_execution_engine (agent)
+2026-04-11 05:44:22,173 | atomos.boot          | INFO     |   Auto-registering: semantic_firewall (agent)
+2026-04-11 05:44:22,174 | atomos.boot          | INFO     |   Auto-registering: state_machine (agent)
+2026-04-11 05:44:22,174 | atomos.boot          | INFO     |   Auto-registering: swarm (swarm)
+2026-04-11 05:44:22,174 | atomos.boot          | INFO     |   Auto-registering: system_mapper (agent)
+2026-04-11 05:44:22,174 | atomos.boot          | INFO     |   Auto-registering: taar_os (agent)
+2026-04-11 05:44:22,174 | atomos.boot          | INFO     |   Auto-registering: taar_v10 (agent)
+2026-04-11 05:44:22,174 | atomos.boot          | INFO     |   Auto-registering: taar_v10_1 (agent)
+2026-04-11 05:44:22,174 | atomos.boot          | INFO     |   Auto-registering: taar_v14 (control)
+2026-04-11 05:44:22,174 | atomos.boot          | INFO     |   Auto-registering: taar_v5 (agent)
+2026-04-11 05:44:22,174 | atomos.boot          | INFO     |   Auto-registering: taar_v6 (control)
+2026-04-11 05:44:22,174 | atomos.boot          | INFO     |   Auto-registering: taar_v8 (agent)
+2026-04-11 05:44:22,174 | atomos.boot          | INFO     |   Auto-registering: taar_v9 (control)
+2026-04-11 05:44:22,174 | atomos.boot          | INFO     |   Auto-registering: task_graph (agent)
+2026-04-11 05:44:22,174 | atomos.boot          | INFO     |   Auto-registering: task_market (agent)
+2026-04-11 05:44:22,174 | atomos.boot          | INFO     |   Auto-registering: tools_adapter (agent)
+2026-04-11 05:44:22,174 | atomos.boot          | INFO     |   Auto-registering: trusted_context (agent)
+2026-04-11 05:44:22,174 | atomos.boot          | INFO     |   Auto-registering: user_gateway (ui)
+2026-04-11 05:44:22,174 | atomos.boot          | INFO     |   Auto-registering: value_evaluator (agent)
+2026-04-11 05:44:22,175 | atomos.boot          | INFO     | 
+[PHASE 2] Booting service registry...
+2026-04-11 05:44:22,175 | atomos.registry      | INFO     | Boot order: memory → shell_tool → filesystem_tool → git_tool → devops_agent → ci_analyzer → patch_engine → swarm_engine → ollama_client → system_observer → metrics_collector → anomaly_detector → cli → aic_os → apex_execution_kernel → apex_runtime → audit_ledger → capability_system → civ_to_reality → civilization_council → civilization_evolution → civilization_memory → control_plane → control_plane_evolver → corp_budget_controller → corp_governance_board → corp_org_registry → corp_roi_tracker → corp_role_allocator → cross_economy_trade → distributed_memory → economic_memory → economy_coordinator → episodic_memory → execution_proof_engine → execution_sandbox → global_coordinator → global_episodic_memory → global_impact_memory → global_resource_market → gpu_control → immutable_audit_graph → infra_abstraction → langgraph_core → memory_hierarchy → meta_control_loop → meta_decision_engine → meta_policy_kernel → meta_proof_engine → mission_broker → mission_controller → mission_generator → mission_prioritizer → orchestrator → policy_consensus → policy_engine → policy_kernel → policy_kernel_v2 → policy_kernel_v3 → policy_kernel_v4 → proof_engine → reality_action_engine → reality_control_council → replay_engine → resource_ledger → safety_gate → secure_execution_engine → semantic_firewall → state_machine → swarm → system_mapper → taar_os → taar_v10 → taar_v10_1 → taar_v14 → taar_v5 → taar_v6 → taar_v8 → taar_v9 → task_graph → task_market → tools_adapter → trusted_context → user_gateway → value_evaluator
+2026-04-11 05:44:22,175 | atomos.registry      | INFO     |   Booting memory...
+2026-04-11 05:44:22,175 | atomos.registry      | INFO     |     ✅ memory (healthy)
+2026-04-11 05:44:22,175 | atomos.registry      | INFO     |   Booting shell_tool...
+2026-04-11 05:44:22,175 | atomos.tools.shell   | INFO     |   Shell tool ready
+2026-04-11 05:44:22,175 | atomos.registry      | INFO     |     ✅ shell_tool (healthy)
+2026-04-11 05:44:22,175 | atomos.registry      | INFO     |   Booting filesystem_tool...
+2026-04-11 05:44:22,175 | atomos.registry      | INFO     |     ✅ filesystem_tool (healthy)
+2026-04-11 05:44:22,175 | atomos.registry      | INFO     |   Booting git_tool...
+2026-04-11 05:44:22,175 | atomos.registry      | INFO     |     ✅ git_tool (healthy)
+2026-04-11 05:44:22,175 | atomos.registry      | INFO     |   Booting devops_agent...
+2026-04-11 05:44:22,175 | atomos.devops        | INFO     |   DevOps agent ready
+2026-04-11 05:44:22,175 | atomos.registry      | INFO     |     ✅ devops_agent (healthy)
+2026-04-11 05:44:22,175 | atomos.registry      | INFO     |   Booting ci_analyzer...
+2026-04-11 05:44:22,175 | atomos.devops        | INFO     |   CI analyzer ready
+2026-04-11 05:44:22,175 | atomos.registry      | INFO     |     ✅ ci_analyzer (healthy)
+2026-04-11 05:44:22,175 | atomos.registry      | INFO     |   Booting patch_engine...
+2026-04-11 05:44:22,175 | atomos.devops        | INFO     |   Patch engine ready
+2026-04-11 05:44:22,176 | atomos.registry      | INFO     |     ✅ patch_engine (healthy)
+2026-04-11 05:44:22,176 | atomos.registry      | INFO     |   Booting swarm_engine...
+2026-04-11 05:44:22,176 | atomos.swarm         | INFO     |   Swarm engine ready (max_workers=8)
+2026-04-11 05:44:22,176 | atomos.registry      | INFO     |     ✅ swarm_engine (healthy)
+2026-04-11 05:44:22,176 | atomos.registry      | INFO     |   Booting ollama_client...
+2026-04-11 05:44:22,181 | atomos.ollama        | INFO     |   Ollama ready: qwen2.5-coder-7b
+2026-04-11 05:44:22,181 | atomos.registry      | INFO     |     ✅ ollama_client (healthy)
+2026-04-11 05:44:22,181 | atomos.registry      | INFO     |   Booting system_observer...
+2026-04-11 05:44:22,181 | atomos.registry      | INFO     |     ✅ system_observer (healthy)
+2026-04-11 05:44:22,181 | atomos.registry      | INFO     |   Booting metrics_collector...
+2026-04-11 05:44:22,181 | atomos.registry      | INFO     |     ✅ metrics_collector (healthy)
+2026-04-11 05:44:22,181 | atomos.registry      | INFO     |   Booting anomaly_detector...
+2026-04-11 05:44:22,181 | atomos.observability | INFO     |   Anomaly detector calibrated
+2026-04-11 05:44:22,181 | atomos.registry      | INFO     |     ✅ anomaly_detector (healthy)
+2026-04-11 05:44:22,181 | atomos.registry      | INFO     |   Booting cli...
+2026-04-11 05:44:22,181 | atomos.ui.cli        | INFO     |   CLI ready
+2026-04-11 05:44:22,181 | atomos.registry      | INFO     |     ✅ cli (initialized)
+2026-04-11 05:44:22,181 | atomos.registry      | INFO     |   Booting aic_os...
+2026-04-11 05:44:22,188 | atomos.registry      | INFO     |     ✅ aic_os (initialized)
+2026-04-11 05:44:22,188 | atomos.registry      | INFO     |   Booting apex_execution_kernel...
+2026-04-11 05:44:22,194 | atomos.registry      | INFO     |     ✅ apex_execution_kernel (initialized)
+2026-04-11 05:44:22,194 | atomos.registry      | INFO     |   Booting apex_runtime...
+2026-04-11 05:44:22,199 | atomos.registry      | ERROR    |     ❌ apex_runtime failed to boot: No module named 'agents'
+2026-04-11 05:44:51,659 | atomos.boot          | INFO     | ============================================================
+2026-04-11 05:44:51,660 | atomos.boot          | INFO     | ATOM OS v15 — BOOT SEQUENCE
+2026-04-11 05:44:51,660 | atomos.boot          | INFO     | ============================================================
+2026-04-11 05:44:51,660 | atomos.boot          | INFO     | 
+[PHASE 0] Loading configuration...
+2026-04-11 05:44:51,660 | atomos.boot          | INFO     |   Config loaded: []
+2026-04-11 05:44:51,660 | atomos.boot          | INFO     | 
+[PHASE 1] Module discovery & registration...
+2026-04-11 05:44:51,704 | atomos.boot          | INFO     |   Auto-registering: aic_os (agent)
+2026-04-11 05:44:51,704 | atomos.boot          | INFO     |   Auto-registering: apex_execution_kernel (agent)
+2026-04-11 05:44:51,704 | atomos.boot          | INFO     |   Auto-registering: apex_runtime (agent)
+2026-04-11 05:44:51,704 | atomos.boot          | INFO     |   Auto-registering: audit_ledger (audit)
+2026-04-11 05:44:51,704 | atomos.boot          | INFO     |   Auto-registering: capability_system (agent)
+2026-04-11 05:44:51,704 | atomos.boot          | INFO     |   Auto-registering: civ_to_reality (agent)
+2026-04-11 05:44:51,705 | atomos.boot          | INFO     |   Auto-registering: civilization_council (agent)
+2026-04-11 05:44:51,705 | atomos.boot          | INFO     |   Auto-registering: civilization_evolution (agent)
+2026-04-11 05:44:51,705 | atomos.boot          | INFO     |   Auto-registering: civilization_memory (agent)
+2026-04-11 05:44:51,705 | atomos.boot          | INFO     |   Auto-registering: control_plane (control)
+2026-04-11 05:44:51,705 | atomos.boot          | INFO     |   Auto-registering: control_plane_evolver (agent)
+2026-04-11 05:44:51,705 | atomos.boot          | INFO     |   Auto-registering: corp_budget_controller (agent)
+2026-04-11 05:44:51,705 | atomos.boot          | INFO     |   Auto-registering: corp_governance_board (agent)
+2026-04-11 05:44:51,705 | atomos.boot          | INFO     |   Auto-registering: corp_org_registry (agent)
+2026-04-11 05:44:51,705 | atomos.boot          | INFO     |   Auto-registering: corp_roi_tracker (agent)
+2026-04-11 05:44:51,705 | atomos.boot          | INFO     |   Auto-registering: corp_role_allocator (agent)
+2026-04-11 05:44:51,705 | atomos.boot          | INFO     |   Auto-registering: cross_economy_trade (agent)
+2026-04-11 05:44:51,705 | atomos.boot          | INFO     |   Auto-registering: distributed_memory (agent)
+2026-04-11 05:44:51,705 | atomos.boot          | INFO     |   Auto-registering: economic_memory (agent)
+2026-04-11 05:44:51,705 | atomos.boot          | INFO     |   Auto-registering: economy_coordinator (agent)
+2026-04-11 05:44:51,705 | atomos.boot          | INFO     |   Auto-registering: episodic_memory (memory)
+2026-04-11 05:44:51,705 | atomos.boot          | INFO     |   Auto-registering: execution_proof_engine (audit)
+2026-04-11 05:44:51,705 | atomos.boot          | INFO     |   Auto-registering: execution_sandbox (agent)
+2026-04-11 05:44:51,705 | atomos.boot          | INFO     |   Auto-registering: global_coordinator (agent)
+2026-04-11 05:44:51,705 | atomos.boot          | INFO     |   Auto-registering: global_episodic_memory (agent)
+2026-04-11 05:44:51,705 | atomos.boot          | INFO     |   Auto-registering: global_impact_memory (agent)
+2026-04-11 05:44:51,705 | atomos.boot          | INFO     |   Auto-registering: global_resource_market (agent)
+2026-04-11 05:44:51,706 | atomos.boot          | INFO     |   Auto-registering: gpu_control (agent)
+2026-04-11 05:44:51,706 | atomos.boot          | INFO     |   Auto-registering: immutable_audit_graph (audit)
+2026-04-11 05:44:51,706 | atomos.boot          | INFO     |   Auto-registering: infra_abstraction (agent)
+2026-04-11 05:44:51,706 | atomos.boot          | INFO     |   Auto-registering: langgraph_core (agent)
+2026-04-11 05:44:51,706 | atomos.boot          | INFO     |   Auto-registering: memory_hierarchy (memory)
+2026-04-11 05:44:51,706 | atomos.boot          | INFO     |   Auto-registering: meta_control_loop (agent)
+2026-04-11 05:44:51,706 | atomos.boot          | INFO     |   Auto-registering: meta_decision_engine (agent)
+2026-04-11 05:44:51,706 | atomos.boot          | INFO     |   Auto-registering: meta_policy_kernel (agent)
+2026-04-11 05:44:51,706 | atomos.boot          | INFO     |   Auto-registering: meta_proof_engine (agent)
+2026-04-11 05:44:51,706 | atomos.boot          | INFO     |   Auto-registering: mission_broker (agent)
+2026-04-11 05:44:51,706 | atomos.boot          | INFO     |   Auto-registering: mission_controller (mission)
+2026-04-11 05:44:51,706 | atomos.boot          | INFO     |   Auto-registering: mission_generator (mission)
+2026-04-11 05:44:51,706 | atomos.boot          | INFO     |   Auto-registering: mission_prioritizer (mission)
+2026-04-11 05:44:51,706 | atomos.boot          | INFO     |   Auto-registering: orchestrator (agent)
+2026-04-11 05:44:51,706 | atomos.boot          | INFO     |   Auto-registering: policy_consensus (agent)
+2026-04-11 05:44:51,706 | atomos.boot          | INFO     |   Auto-registering: policy_engine (agent)
+2026-04-11 05:44:51,706 | atomos.boot          | INFO     |   Auto-registering: policy_kernel (agent)
+2026-04-11 05:44:51,706 | atomos.boot          | INFO     |   Auto-registering: policy_kernel_v2 (policy)
+2026-04-11 05:44:51,707 | atomos.boot          | INFO     |   Auto-registering: policy_kernel_v3 (policy)
+2026-04-11 05:44:51,707 | atomos.boot          | INFO     |   Auto-registering: policy_kernel_v4 (policy)
+2026-04-11 05:44:51,707 | atomos.boot          | INFO     |   Auto-registering: proof_engine (audit)
+2026-04-11 05:44:51,707 | atomos.boot          | INFO     |   Auto-registering: reality_action_engine (agent)
+2026-04-11 05:44:51,707 | atomos.boot          | INFO     |   Auto-registering: reality_control_council (agent)
+2026-04-11 05:44:51,707 | atomos.boot          | INFO     |   Auto-registering: replay_engine (audit)
+2026-04-11 05:44:51,707 | atomos.boot          | INFO     |   Auto-registering: resource_ledger (agent)
+2026-04-11 05:44:51,707 | atomos.boot          | INFO     |   Auto-registering: safety_gate (devops)
+2026-04-11 05:44:51,707 | atomos.boot          | INFO     |   Auto-registering: secure_execution_engine (agent)
+2026-04-11 05:44:51,707 | atomos.boot          | INFO     |   Auto-registering: semantic_firewall (agent)
+2026-04-11 05:44:51,707 | atomos.boot          | INFO     |   Auto-registering: state_machine (agent)
+2026-04-11 05:44:51,707 | atomos.boot          | INFO     |   Auto-registering: swarm (swarm)
+2026-04-11 05:44:51,707 | atomos.boot          | INFO     |   Auto-registering: system_mapper (agent)
+2026-04-11 05:44:51,707 | atomos.boot          | INFO     |   Auto-registering: taar_os (agent)
+2026-04-11 05:44:51,707 | atomos.boot          | INFO     |   Auto-registering: taar_v10 (agent)
+2026-04-11 05:44:51,707 | atomos.boot          | INFO     |   Auto-registering: taar_v10_1 (agent)
+2026-04-11 05:44:51,707 | atomos.boot          | INFO     |   Auto-registering: taar_v14 (control)
+2026-04-11 05:44:51,707 | atomos.boot          | INFO     |   Auto-registering: taar_v5 (agent)
+2026-04-11 05:44:51,707 | atomos.boot          | INFO     |   Auto-registering: taar_v6 (control)
+2026-04-11 05:44:51,707 | atomos.boot          | INFO     |   Auto-registering: taar_v8 (agent)
+2026-04-11 05:44:51,708 | atomos.boot          | INFO     |   Auto-registering: taar_v9 (control)
+2026-04-11 05:44:51,708 | atomos.boot          | INFO     |   Auto-registering: task_graph (agent)
+2026-04-11 05:44:51,708 | atomos.boot          | INFO     |   Auto-registering: task_market (agent)
+2026-04-11 05:44:51,708 | atomos.boot          | INFO     |   Auto-registering: tools_adapter (agent)
+2026-04-11 05:44:51,708 | atomos.boot          | INFO     |   Auto-registering: trusted_context (agent)
+2026-04-11 05:44:51,708 | atomos.boot          | INFO     |   Auto-registering: user_gateway (ui)
+2026-04-11 05:44:51,708 | atomos.boot          | INFO     |   Auto-registering: value_evaluator (agent)
+2026-04-11 05:44:51,708 | atomos.boot          | INFO     | 
+[PHASE 2] Booting service registry...
+2026-04-11 05:44:51,708 | atomos.registry      | INFO     | Boot order: memory → shell_tool → filesystem_tool → git_tool → devops_agent → ci_analyzer → patch_engine → swarm_engine → ollama_client → system_observer → metrics_collector → anomaly_detector → cli → aic_os → apex_execution_kernel → apex_runtime → audit_ledger → capability_system → civ_to_reality → civilization_council → civilization_evolution → civilization_memory → control_plane → control_plane_evolver → corp_budget_controller → corp_governance_board → corp_org_registry → corp_roi_tracker → corp_role_allocator → cross_economy_trade → distributed_memory → economic_memory → economy_coordinator → episodic_memory → execution_proof_engine → execution_sandbox → global_coordinator → global_episodic_memory → global_impact_memory → global_resource_market → gpu_control → immutable_audit_graph → infra_abstraction → langgraph_core → memory_hierarchy → meta_control_loop → meta_decision_engine → meta_policy_kernel → meta_proof_engine → mission_broker → mission_controller → mission_generator → mission_prioritizer → orchestrator → policy_consensus → policy_engine → policy_kernel → policy_kernel_v2 → policy_kernel_v3 → policy_kernel_v4 → proof_engine → reality_action_engine → reality_control_council → replay_engine → resource_ledger → safety_gate → secure_execution_engine → semantic_firewall → state_machine → swarm → system_mapper → taar_os → taar_v10 → taar_v10_1 → taar_v14 → taar_v5 → taar_v6 → taar_v8 → taar_v9 → task_graph → task_market → tools_adapter → trusted_context → user_gateway → value_evaluator
+2026-04-11 05:44:51,708 | atomos.registry      | INFO     |   Booting memory...
+2026-04-11 05:44:51,708 | atomos.registry      | INFO     |     ✅ memory (healthy)
+2026-04-11 05:44:51,708 | atomos.registry      | INFO     |   Booting shell_tool...
+2026-04-11 05:44:51,708 | atomos.tools.shell   | INFO     |   Shell tool ready
+2026-04-11 05:44:51,708 | atomos.registry      | INFO     |     ✅ shell_tool (healthy)
+2026-04-11 05:44:51,708 | atomos.registry      | INFO     |   Booting filesystem_tool...
+2026-04-11 05:44:51,709 | atomos.registry      | INFO     |     ✅ filesystem_tool (healthy)
+2026-04-11 05:44:51,709 | atomos.registry      | INFO     |   Booting git_tool...
+2026-04-11 05:44:51,709 | atomos.registry      | INFO     |     ✅ git_tool (healthy)
+2026-04-11 05:44:51,709 | atomos.registry      | INFO     |   Booting devops_agent...
+2026-04-11 05:44:51,709 | atomos.devops        | INFO     |   DevOps agent ready
+2026-04-11 05:44:51,709 | atomos.registry      | INFO     |     ✅ devops_agent (healthy)
+2026-04-11 05:44:51,709 | atomos.registry      | INFO     |   Booting ci_analyzer...
+2026-04-11 05:44:51,709 | atomos.devops        | INFO     |   CI analyzer ready
+2026-04-11 05:44:51,709 | atomos.registry      | INFO     |     ✅ ci_analyzer (healthy)
+2026-04-11 05:44:51,709 | atomos.registry      | INFO     |   Booting patch_engine...
+2026-04-11 05:44:51,709 | atomos.devops        | INFO     |   Patch engine ready
+2026-04-11 05:44:51,709 | atomos.registry      | INFO     |     ✅ patch_engine (healthy)
+2026-04-11 05:44:51,709 | atomos.registry      | INFO     |   Booting swarm_engine...
+2026-04-11 05:44:51,709 | atomos.swarm         | INFO     |   Swarm engine ready (max_workers=8)
+2026-04-11 05:44:51,709 | atomos.registry      | INFO     |     ✅ swarm_engine (healthy)
+2026-04-11 05:44:51,709 | atomos.registry      | INFO     |   Booting ollama_client...
+2026-04-11 05:44:51,714 | atomos.ollama        | INFO     |   Ollama ready: qwen2.5-coder-7b
+2026-04-11 05:44:51,715 | atomos.registry      | INFO     |     ✅ ollama_client (healthy)
+2026-04-11 05:44:51,715 | atomos.registry      | INFO     |   Booting system_observer...
+2026-04-11 05:44:51,715 | atomos.registry      | INFO     |     ✅ system_observer (healthy)
+2026-04-11 05:44:51,715 | atomos.registry      | INFO     |   Booting metrics_collector...
+2026-04-11 05:44:51,715 | atomos.registry      | INFO     |     ✅ metrics_collector (healthy)
+2026-04-11 05:44:51,715 | atomos.registry      | INFO     |   Booting anomaly_detector...
+2026-04-11 05:44:51,715 | atomos.observability | INFO     |   Anomaly detector calibrated
+2026-04-11 05:44:51,715 | atomos.registry      | INFO     |     ✅ anomaly_detector (healthy)
+2026-04-11 05:44:51,715 | atomos.registry      | INFO     |   Booting cli...
+2026-04-11 05:44:51,715 | atomos.ui.cli        | INFO     |   CLI ready
+2026-04-11 05:44:51,715 | atomos.registry      | INFO     |     ✅ cli (initialized)
+2026-04-11 05:44:51,715 | atomos.registry      | INFO     |   Booting aic_os...
+2026-04-11 05:44:51,722 | atomos.registry      | INFO     |     ✅ aic_os (initialized)
+2026-04-11 05:44:51,723 | atomos.registry      | INFO     |   Booting apex_execution_kernel...
+2026-04-11 05:44:51,729 | atomos.registry      | INFO     |     ✅ apex_execution_kernel (initialized)
+2026-04-11 05:44:51,729 | atomos.registry      | INFO     |   Booting apex_runtime...
+2026-04-11 05:44:51,733 | atomos.registry      | ERROR    |     ❌ apex_runtime failed to boot: No module named 'agents'
+2026-04-11 05:46:46,009 | atomos.boot          | INFO     | ============================================================
+2026-04-11 05:46:46,009 | atomos.boot          | INFO     | ATOM OS v15 — BOOT SEQUENCE
+2026-04-11 05:46:46,009 | atomos.boot          | INFO     | ============================================================
+2026-04-11 05:46:46,009 | atomos.boot          | INFO     | 
+[PHASE 0] Loading configuration...
+2026-04-11 05:46:46,010 | atomos.boot          | INFO     |   Config loaded: []
+2026-04-11 05:46:46,010 | atomos.boot          | INFO     | 
+[PHASE 1] Module discovery & registration...
+2026-04-11 05:46:46,057 | atomos.boot          | INFO     |   Auto-registering: aic_os (agent)
+2026-04-11 05:46:46,057 | atomos.boot          | INFO     |   Auto-registering: apex_execution_kernel (agent)
+2026-04-11 05:46:46,057 | atomos.boot          | INFO     |   Auto-registering: apex_runtime (agent)
+2026-04-11 05:46:46,057 | atomos.boot          | INFO     |   Auto-registering: audit_ledger (audit)
+2026-04-11 05:46:46,057 | atomos.boot          | INFO     |   Auto-registering: capability_system (agent)
+2026-04-11 05:46:46,057 | atomos.boot          | INFO     |   Auto-registering: civ_to_reality (agent)
+2026-04-11 05:46:46,057 | atomos.boot          | INFO     |   Auto-registering: civilization_council (agent)
+2026-04-11 05:46:46,057 | atomos.boot          | INFO     |   Auto-registering: civilization_evolution (agent)
+2026-04-11 05:46:46,057 | atomos.boot          | INFO     |   Auto-registering: civilization_memory (agent)
+2026-04-11 05:46:46,057 | atomos.boot          | INFO     |   Auto-registering: control_plane (control)
+2026-04-11 05:46:46,057 | atomos.boot          | INFO     |   Auto-registering: control_plane_evolver (agent)
+2026-04-11 05:46:46,058 | atomos.boot          | INFO     |   Auto-registering: corp_budget_controller (agent)
+2026-04-11 05:46:46,058 | atomos.boot          | INFO     |   Auto-registering: corp_governance_board (agent)
+2026-04-11 05:46:46,058 | atomos.boot          | INFO     |   Auto-registering: corp_org_registry (agent)
+2026-04-11 05:46:46,058 | atomos.boot          | INFO     |   Auto-registering: corp_roi_tracker (agent)
+2026-04-11 05:46:46,058 | atomos.boot          | INFO     |   Auto-registering: corp_role_allocator (agent)
+2026-04-11 05:46:46,058 | atomos.boot          | INFO     |   Auto-registering: cross_economy_trade (agent)
+2026-04-11 05:46:46,058 | atomos.boot          | INFO     |   Auto-registering: distributed_memory (agent)
+2026-04-11 05:46:46,058 | atomos.boot          | INFO     |   Auto-registering: economic_memory (agent)
+2026-04-11 05:46:46,058 | atomos.boot          | INFO     |   Auto-registering: economy_coordinator (agent)
+2026-04-11 05:46:46,058 | atomos.boot          | INFO     |   Auto-registering: episodic_memory (memory)
+2026-04-11 05:46:46,058 | atomos.boot          | INFO     |   Auto-registering: execution_proof_engine (audit)
+2026-04-11 05:46:46,058 | atomos.boot          | INFO     |   Auto-registering: execution_sandbox (agent)
+2026-04-11 05:46:46,058 | atomos.boot          | INFO     |   Auto-registering: global_coordinator (agent)
+2026-04-11 05:46:46,058 | atomos.boot          | INFO     |   Auto-registering: global_episodic_memory (agent)
+2026-04-11 05:46:46,058 | atomos.boot          | INFO     |   Auto-registering: global_impact_memory (agent)
+2026-04-11 05:46:46,058 | atomos.boot          | INFO     |   Auto-registering: global_resource_market (agent)
+2026-04-11 05:46:46,058 | atomos.boot          | INFO     |   Auto-registering: gpu_control (agent)
+2026-04-11 05:46:46,058 | atomos.boot          | INFO     |   Auto-registering: immutable_audit_graph (audit)
+2026-04-11 05:46:46,058 | atomos.boot          | INFO     |   Auto-registering: infra_abstraction (agent)
+2026-04-11 05:46:46,058 | atomos.boot          | INFO     |   Auto-registering: langgraph_core (agent)
+2026-04-11 05:46:46,059 | atomos.boot          | INFO     |   Auto-registering: memory_hierarchy (memory)
+2026-04-11 05:46:46,059 | atomos.boot          | INFO     |   Auto-registering: meta_control_loop (agent)
+2026-04-11 05:46:46,059 | atomos.boot          | INFO     |   Auto-registering: meta_decision_engine (agent)
+2026-04-11 05:46:46,059 | atomos.boot          | INFO     |   Auto-registering: meta_policy_kernel (agent)
+2026-04-11 05:46:46,059 | atomos.boot          | INFO     |   Auto-registering: meta_proof_engine (agent)
+2026-04-11 05:46:46,059 | atomos.boot          | INFO     |   Auto-registering: mission_broker (agent)
+2026-04-11 05:46:46,059 | atomos.boot          | INFO     |   Auto-registering: mission_controller (mission)
+2026-04-11 05:46:46,059 | atomos.boot          | INFO     |   Auto-registering: mission_generator (mission)
+2026-04-11 05:46:46,059 | atomos.boot          | INFO     |   Auto-registering: mission_prioritizer (mission)
+2026-04-11 05:46:46,059 | atomos.boot          | INFO     |   Auto-registering: orchestrator (agent)
+2026-04-11 05:46:46,059 | atomos.boot          | INFO     |   Auto-registering: policy_consensus (agent)
+2026-04-11 05:46:46,059 | atomos.boot          | INFO     |   Auto-registering: policy_engine (agent)
+2026-04-11 05:46:46,059 | atomos.boot          | INFO     |   Auto-registering: policy_kernel (agent)
+2026-04-11 05:46:46,059 | atomos.boot          | INFO     |   Auto-registering: policy_kernel_v2 (policy)
+2026-04-11 05:46:46,059 | atomos.boot          | INFO     |   Auto-registering: policy_kernel_v3 (policy)
+2026-04-11 05:46:46,059 | atomos.boot          | INFO     |   Auto-registering: policy_kernel_v4 (policy)
+2026-04-11 05:46:46,059 | atomos.boot          | INFO     |   Auto-registering: proof_engine (audit)
+2026-04-11 05:46:46,059 | atomos.boot          | INFO     |   Auto-registering: reality_action_engine (agent)
+2026-04-11 05:46:46,059 | atomos.boot          | INFO     |   Auto-registering: reality_control_council (agent)
+2026-04-11 05:46:46,060 | atomos.boot          | INFO     |   Auto-registering: replay_engine (audit)
+2026-04-11 05:46:46,060 | atomos.boot          | INFO     |   Auto-registering: resource_ledger (agent)
+2026-04-11 05:46:46,060 | atomos.boot          | INFO     |   Auto-registering: safety_gate (devops)
+2026-04-11 05:46:46,060 | atomos.boot          | INFO     |   Auto-registering: secure_execution_engine (agent)
+2026-04-11 05:46:46,060 | atomos.boot          | INFO     |   Auto-registering: semantic_firewall (agent)
+2026-04-11 05:46:46,060 | atomos.boot          | INFO     |   Auto-registering: state_machine (agent)
+2026-04-11 05:46:46,060 | atomos.boot          | INFO     |   Auto-registering: swarm (swarm)
+2026-04-11 05:46:46,060 | atomos.boot          | INFO     |   Auto-registering: system_mapper (agent)
+2026-04-11 05:46:46,060 | atomos.boot          | INFO     |   Auto-registering: taar_os (agent)
+2026-04-11 05:46:46,060 | atomos.boot          | INFO     |   Auto-registering: taar_v10 (agent)
+2026-04-11 05:46:46,060 | atomos.boot          | INFO     |   Auto-registering: taar_v10_1 (agent)
+2026-04-11 05:46:46,060 | atomos.boot          | INFO     |   Auto-registering: taar_v14 (control)
+2026-04-11 05:46:46,060 | atomos.boot          | INFO     |   Auto-registering: taar_v5 (agent)
+2026-04-11 05:46:46,060 | atomos.boot          | INFO     |   Auto-registering: taar_v6 (control)
+2026-04-11 05:46:46,060 | atomos.boot          | INFO     |   Auto-registering: taar_v8 (agent)
+2026-04-11 05:46:46,060 | atomos.boot          | INFO     |   Auto-registering: taar_v9 (control)
+2026-04-11 05:46:46,060 | atomos.boot          | INFO     |   Auto-registering: task_graph (agent)
+2026-04-11 05:46:46,060 | atomos.boot          | INFO     |   Auto-registering: task_market (agent)
+2026-04-11 05:46:46,060 | atomos.boot          | INFO     |   Auto-registering: tools_adapter (agent)
+2026-04-11 05:46:46,061 | atomos.boot          | INFO     |   Auto-registering: trusted_context (agent)
+2026-04-11 05:46:46,061 | atomos.boot          | INFO     |   Auto-registering: user_gateway (ui)
+2026-04-11 05:46:46,061 | atomos.boot          | INFO     |   Auto-registering: value_evaluator (agent)
+2026-04-11 05:46:46,061 | atomos.boot          | INFO     | 
+[PHASE 2] Booting service registry...
+2026-04-11 05:46:46,061 | atomos.registry      | INFO     | Boot order: memory → shell_tool → filesystem_tool → git_tool → devops_agent → ci_analyzer → patch_engine → swarm_engine → ollama_client → system_observer → metrics_collector → anomaly_detector → cli → aic_os → apex_execution_kernel → apex_runtime → audit_ledger → capability_system → civ_to_reality → civilization_council → civilization_evolution → civilization_memory → control_plane → control_plane_evolver → corp_budget_controller → corp_governance_board → corp_org_registry → corp_roi_tracker → corp_role_allocator → cross_economy_trade → distributed_memory → economic_memory → economy_coordinator → episodic_memory → execution_proof_engine → execution_sandbox → global_coordinator → global_episodic_memory → global_impact_memory → global_resource_market → gpu_control → immutable_audit_graph → infra_abstraction → langgraph_core → memory_hierarchy → meta_control_loop → meta_decision_engine → meta_policy_kernel → meta_proof_engine → mission_broker → mission_controller → mission_generator → mission_prioritizer → orchestrator → policy_consensus → policy_engine → policy_kernel → policy_kernel_v2 → policy_kernel_v3 → policy_kernel_v4 → proof_engine → reality_action_engine → reality_control_council → replay_engine → resource_ledger → safety_gate → secure_execution_engine → semantic_firewall → state_machine → swarm → system_mapper → taar_os → taar_v10 → taar_v10_1 → taar_v14 → taar_v5 → taar_v6 → taar_v8 → taar_v9 → task_graph → task_market → tools_adapter → trusted_context → user_gateway → value_evaluator
+2026-04-11 05:46:46,061 | atomos.registry      | INFO     |   Booting memory...
+2026-04-11 05:46:46,061 | atomos.registry      | INFO     |     ✅ memory (healthy)
+2026-04-11 05:46:46,061 | atomos.registry      | INFO     |   Booting shell_tool...
+2026-04-11 05:46:46,061 | atomos.tools.shell   | INFO     |   Shell tool ready
+2026-04-11 05:46:46,061 | atomos.registry      | INFO     |     ✅ shell_tool (healthy)
+2026-04-11 05:46:46,061 | atomos.registry      | INFO     |   Booting filesystem_tool...
+2026-04-11 05:46:46,061 | atomos.registry      | INFO     |     ✅ filesystem_tool (healthy)
+2026-04-11 05:46:46,061 | atomos.registry      | INFO     |   Booting git_tool...
+2026-04-11 05:46:46,061 | atomos.registry      | INFO     |     ✅ git_tool (healthy)
+2026-04-11 05:46:46,061 | atomos.registry      | INFO     |   Booting devops_agent...
+2026-04-11 05:46:46,061 | atomos.devops        | INFO     |   DevOps agent ready
+2026-04-11 05:46:46,061 | atomos.registry      | INFO     |     ✅ devops_agent (healthy)
+2026-04-11 05:46:46,061 | atomos.registry      | INFO     |   Booting ci_analyzer...
+2026-04-11 05:46:46,062 | atomos.devops        | INFO     |   CI analyzer ready
+2026-04-11 05:46:46,062 | atomos.registry      | INFO     |     ✅ ci_analyzer (healthy)
+2026-04-11 05:46:46,062 | atomos.registry      | INFO     |   Booting patch_engine...
+2026-04-11 05:46:46,062 | atomos.devops        | INFO     |   Patch engine ready
+2026-04-11 05:46:46,062 | atomos.registry      | INFO     |     ✅ patch_engine (healthy)
+2026-04-11 05:46:46,062 | atomos.registry      | INFO     |   Booting swarm_engine...
+2026-04-11 05:46:46,062 | atomos.swarm         | INFO     |   Swarm engine ready (max_workers=8)
+2026-04-11 05:46:46,062 | atomos.registry      | INFO     |     ✅ swarm_engine (healthy)
+2026-04-11 05:46:46,062 | atomos.registry      | INFO     |   Booting ollama_client...
+2026-04-11 05:46:46,068 | atomos.ollama        | INFO     |   Ollama ready: qwen2.5-coder-7b
+2026-04-11 05:46:46,068 | atomos.registry      | INFO     |     ✅ ollama_client (healthy)
+2026-04-11 05:46:46,068 | atomos.registry      | INFO     |   Booting system_observer...
+2026-04-11 05:46:46,068 | atomos.registry      | INFO     |     ✅ system_observer (healthy)
+2026-04-11 05:46:46,068 | atomos.registry      | INFO     |   Booting metrics_collector...
+2026-04-11 05:46:46,068 | atomos.registry      | INFO     |     ✅ metrics_collector (healthy)
+2026-04-11 05:46:46,068 | atomos.registry      | INFO     |   Booting anomaly_detector...
+2026-04-11 05:46:46,068 | atomos.observability | INFO     |   Anomaly detector calibrated
+2026-04-11 05:46:46,068 | atomos.registry      | INFO     |     ✅ anomaly_detector (healthy)
+2026-04-11 05:46:46,068 | atomos.registry      | INFO     |   Booting cli...
+2026-04-11 05:46:46,068 | atomos.ui.cli        | INFO     |   CLI ready
+2026-04-11 05:46:46,068 | atomos.registry      | INFO     |     ✅ cli (initialized)
+2026-04-11 05:46:46,069 | atomos.registry      | INFO     |   Booting aic_os...
+2026-04-11 05:46:46,076 | atomos.registry      | INFO     |     ✅ aic_os (initialized)
+2026-04-11 05:46:46,076 | atomos.registry      | INFO     |   Booting apex_execution_kernel...
+2026-04-11 05:46:46,082 | atomos.registry      | INFO     |     ✅ apex_execution_kernel (initialized)
+2026-04-11 05:46:46,082 | atomos.registry      | INFO     |   Booting apex_runtime...
+2026-04-11 05:46:46,086 | atomos.registry      | ERROR    |     ❌ apex_runtime failed to boot: No module named 'agents'
+2026-04-11 05:46:49,778 | atomos.boot          | INFO     | ============================================================
+2026-04-11 05:46:49,778 | atomos.boot          | INFO     | ATOM OS v15 — BOOT SEQUENCE
+2026-04-11 05:46:49,778 | atomos.boot          | INFO     | ============================================================
+2026-04-11 05:46:49,778 | atomos.boot          | INFO     | 
+[PHASE 0] Loading configuration...
+2026-04-11 05:46:49,778 | atomos.boot          | INFO     |   Config loaded: []
+2026-04-11 05:46:49,778 | atomos.boot          | INFO     | 
+[PHASE 1] Module discovery & registration...
+2026-04-11 05:46:49,822 | atomos.boot          | INFO     |   Auto-registering: aic_os (agent)
+2026-04-11 05:46:49,823 | atomos.boot          | INFO     |   Auto-registering: apex_execution_kernel (agent)
+2026-04-11 05:46:49,823 | atomos.boot          | INFO     |   Auto-registering: apex_runtime (agent)
+2026-04-11 05:46:49,823 | atomos.boot          | INFO     |   Auto-registering: audit_ledger (audit)
+2026-04-11 05:46:49,823 | atomos.boot          | INFO     |   Auto-registering: capability_system (agent)
+2026-04-11 05:46:49,823 | atomos.boot          | INFO     |   Auto-registering: civ_to_reality (agent)
+2026-04-11 05:46:49,823 | atomos.boot          | INFO     |   Auto-registering: civilization_council (agent)
+2026-04-11 05:46:49,823 | atomos.boot          | INFO     |   Auto-registering: civilization_evolution (agent)
+2026-04-11 05:46:49,823 | atomos.boot          | INFO     |   Auto-registering: civilization_memory (agent)
+2026-04-11 05:46:49,823 | atomos.boot          | INFO     |   Auto-registering: control_plane (control)
+2026-04-11 05:46:49,823 | atomos.boot          | INFO     |   Auto-registering: control_plane_evolver (agent)
+2026-04-11 05:46:49,823 | atomos.boot          | INFO     |   Auto-registering: corp_budget_controller (agent)
+2026-04-11 05:46:49,823 | atomos.boot          | INFO     |   Auto-registering: corp_governance_board (agent)
+2026-04-11 05:46:49,823 | atomos.boot          | INFO     |   Auto-registering: corp_org_registry (agent)
+2026-04-11 05:46:49,823 | atomos.boot          | INFO     |   Auto-registering: corp_roi_tracker (agent)
+2026-04-11 05:46:49,823 | atomos.boot          | INFO     |   Auto-registering: corp_role_allocator (agent)
+2026-04-11 05:46:49,823 | atomos.boot          | INFO     |   Auto-registering: cross_economy_trade (agent)
+2026-04-11 05:46:49,823 | atomos.boot          | INFO     |   Auto-registering: distributed_memory (agent)
+2026-04-11 05:46:49,824 | atomos.boot          | INFO     |   Auto-registering: economic_memory (agent)
+2026-04-11 05:46:49,824 | atomos.boot          | INFO     |   Auto-registering: economy_coordinator (agent)
+2026-04-11 05:46:49,824 | atomos.boot          | INFO     |   Auto-registering: episodic_memory (memory)
+2026-04-11 05:46:49,824 | atomos.boot          | INFO     |   Auto-registering: execution_proof_engine (audit)
+2026-04-11 05:46:49,824 | atomos.boot          | INFO     |   Auto-registering: execution_sandbox (agent)
+2026-04-11 05:46:49,824 | atomos.boot          | INFO     |   Auto-registering: global_coordinator (agent)
+2026-04-11 05:46:49,824 | atomos.boot          | INFO     |   Auto-registering: global_episodic_memory (agent)
+2026-04-11 05:46:49,824 | atomos.boot          | INFO     |   Auto-registering: global_impact_memory (agent)
+2026-04-11 05:46:49,824 | atomos.boot          | INFO     |   Auto-registering: global_resource_market (agent)
+2026-04-11 05:46:49,824 | atomos.boot          | INFO     |   Auto-registering: gpu_control (agent)
+2026-04-11 05:46:49,824 | atomos.boot          | INFO     |   Auto-registering: immutable_audit_graph (audit)
+2026-04-11 05:46:49,824 | atomos.boot          | INFO     |   Auto-registering: infra_abstraction (agent)
+2026-04-11 05:46:49,824 | atomos.boot          | INFO     |   Auto-registering: langgraph_core (agent)
+2026-04-11 05:46:49,824 | atomos.boot          | INFO     |   Auto-registering: memory_hierarchy (memory)
+2026-04-11 05:46:49,824 | atomos.boot          | INFO     |   Auto-registering: meta_control_loop (agent)
+2026-04-11 05:46:49,824 | atomos.boot          | INFO     |   Auto-registering: meta_decision_engine (agent)
+2026-04-11 05:46:49,824 | atomos.boot          | INFO     |   Auto-registering: meta_policy_kernel (agent)
+2026-04-11 05:46:49,824 | atomos.boot          | INFO     |   Auto-registering: meta_proof_engine (agent)
+2026-04-11 05:46:49,824 | atomos.boot          | INFO     |   Auto-registering: mission_broker (agent)
+2026-04-11 05:46:49,825 | atomos.boot          | INFO     |   Auto-registering: mission_controller (mission)
+2026-04-11 05:46:49,825 | atomos.boot          | INFO     |   Auto-registering: mission_generator (mission)
+2026-04-11 05:46:49,825 | atomos.boot          | INFO     |   Auto-registering: mission_prioritizer (mission)
+2026-04-11 05:46:49,825 | atomos.boot          | INFO     |   Auto-registering: orchestrator (agent)
+2026-04-11 05:46:49,825 | atomos.boot          | INFO     |   Auto-registering: policy_consensus (agent)
+2026-04-11 05:46:49,825 | atomos.boot          | INFO     |   Auto-registering: policy_engine (agent)
+2026-04-11 05:46:49,825 | atomos.boot          | INFO     |   Auto-registering: policy_kernel (agent)
+2026-04-11 05:46:49,825 | atomos.boot          | INFO     |   Auto-registering: policy_kernel_v2 (policy)
+2026-04-11 05:46:49,825 | atomos.boot          | INFO     |   Auto-registering: policy_kernel_v3 (policy)
+2026-04-11 05:46:49,825 | atomos.boot          | INFO     |   Auto-registering: policy_kernel_v4 (policy)
+2026-04-11 05:46:49,825 | atomos.boot          | INFO     |   Auto-registering: proof_engine (audit)
+2026-04-11 05:46:49,825 | atomos.boot          | INFO     |   Auto-registering: reality_action_engine (agent)
+2026-04-11 05:46:49,825 | atomos.boot          | INFO     |   Auto-registering: reality_control_council (agent)
+2026-04-11 05:46:49,825 | atomos.boot          | INFO     |   Auto-registering: replay_engine (audit)
+2026-04-11 05:46:49,825 | atomos.boot          | INFO     |   Auto-registering: resource_ledger (agent)
+2026-04-11 05:46:49,825 | atomos.boot          | INFO     |   Auto-registering: safety_gate (devops)
+2026-04-11 05:46:49,825 | atomos.boot          | INFO     |   Auto-registering: secure_execution_engine (agent)
+2026-04-11 05:46:49,825 | atomos.boot          | INFO     |   Auto-registering: semantic_firewall (agent)
+2026-04-11 05:46:49,825 | atomos.boot          | INFO     |   Auto-registering: state_machine (agent)
+2026-04-11 05:46:49,826 | atomos.boot          | INFO     |   Auto-registering: swarm (swarm)
+2026-04-11 05:46:49,826 | atomos.boot          | INFO     |   Auto-registering: system_mapper (agent)
+2026-04-11 05:46:49,826 | atomos.boot          | INFO     |   Auto-registering: taar_os (agent)
+2026-04-11 05:46:49,826 | atomos.boot          | INFO     |   Auto-registering: taar_v10 (agent)
+2026-04-11 05:46:49,826 | atomos.boot          | INFO     |   Auto-registering: taar_v10_1 (agent)
+2026-04-11 05:46:49,826 | atomos.boot          | INFO     |   Auto-registering: taar_v14 (control)
+2026-04-11 05:46:49,826 | atomos.boot          | INFO     |   Auto-registering: taar_v5 (agent)
+2026-04-11 05:46:49,826 | atomos.boot          | INFO     |   Auto-registering: taar_v6 (control)
+2026-04-11 05:46:49,826 | atomos.boot          | INFO     |   Auto-registering: taar_v8 (agent)
+2026-04-11 05:46:49,826 | atomos.boot          | INFO     |   Auto-registering: taar_v9 (control)
+2026-04-11 05:46:49,826 | atomos.boot          | INFO     |   Auto-registering: task_graph (agent)
+2026-04-11 05:46:49,826 | atomos.boot          | INFO     |   Auto-registering: task_market (agent)
+2026-04-11 05:46:49,826 | atomos.boot          | INFO     |   Auto-registering: tools_adapter (agent)
+2026-04-11 05:46:49,826 | atomos.boot          | INFO     |   Auto-registering: trusted_context (agent)
+2026-04-11 05:46:49,826 | atomos.boot          | INFO     |   Auto-registering: user_gateway (ui)
+2026-04-11 05:46:49,826 | atomos.boot          | INFO     |   Auto-registering: value_evaluator (agent)
+2026-04-11 05:46:49,826 | atomos.boot          | INFO     | 
+[PHASE 2] Booting service registry...
+2026-04-11 05:46:49,826 | atomos.registry      | INFO     | Boot order: memory → shell_tool → filesystem_tool → git_tool → devops_agent → ci_analyzer → patch_engine → swarm_engine → ollama_client → system_observer → metrics_collector → anomaly_detector → cli → aic_os → apex_execution_kernel → apex_runtime → audit_ledger → capability_system → civ_to_reality → civilization_council → civilization_evolution → civilization_memory → control_plane → control_plane_evolver → corp_budget_controller → corp_governance_board → corp_org_registry → corp_roi_tracker → corp_role_allocator → cross_economy_trade → distributed_memory → economic_memory → economy_coordinator → episodic_memory → execution_proof_engine → execution_sandbox → global_coordinator → global_episodic_memory → global_impact_memory → global_resource_market → gpu_control → immutable_audit_graph → infra_abstraction → langgraph_core → memory_hierarchy → meta_control_loop → meta_decision_engine → meta_policy_kernel → meta_proof_engine → mission_broker → mission_controller → mission_generator → mission_prioritizer → orchestrator → policy_consensus → policy_engine → policy_kernel → policy_kernel_v2 → policy_kernel_v3 → policy_kernel_v4 → proof_engine → reality_action_engine → reality_control_council → replay_engine → resource_ledger → safety_gate → secure_execution_engine → semantic_firewall → state_machine → swarm → system_mapper → taar_os → taar_v10 → taar_v10_1 → taar_v14 → taar_v5 → taar_v6 → taar_v8 → taar_v9 → task_graph → task_market → tools_adapter → trusted_context → user_gateway → value_evaluator
+2026-04-11 05:46:49,827 | atomos.registry      | INFO     |   Booting memory...
+2026-04-11 05:46:49,827 | atomos.registry      | INFO     |     ✅ memory (healthy)
+2026-04-11 05:46:49,827 | atomos.registry      | INFO     |   Booting shell_tool...
+2026-04-11 05:46:49,827 | atomos.tools.shell   | INFO     |   Shell tool ready
+2026-04-11 05:46:49,827 | atomos.registry      | INFO     |     ✅ shell_tool (healthy)
+2026-04-11 05:46:49,827 | atomos.registry      | INFO     |   Booting filesystem_tool...
+2026-04-11 05:46:49,827 | atomos.registry      | INFO     |     ✅ filesystem_tool (healthy)
+2026-04-11 05:46:49,827 | atomos.registry      | INFO     |   Booting git_tool...
+2026-04-11 05:46:49,827 | atomos.registry      | INFO     |     ✅ git_tool (healthy)
+2026-04-11 05:46:49,827 | atomos.registry      | INFO     |   Booting devops_agent...
+2026-04-11 05:46:49,827 | atomos.devops        | INFO     |   DevOps agent ready
+2026-04-11 05:46:49,827 | atomos.registry      | INFO     |     ✅ devops_agent (healthy)
+2026-04-11 05:46:49,827 | atomos.registry      | INFO     |   Booting ci_analyzer...
+2026-04-11 05:46:49,827 | atomos.devops        | INFO     |   CI analyzer ready
+2026-04-11 05:46:49,827 | atomos.registry      | INFO     |     ✅ ci_analyzer (healthy)
+2026-04-11 05:46:49,827 | atomos.registry      | INFO     |   Booting patch_engine...
+2026-04-11 05:46:49,827 | atomos.devops        | INFO     |   Patch engine ready
+2026-04-11 05:46:49,827 | atomos.registry      | INFO     |     ✅ patch_engine (healthy)
+2026-04-11 05:46:49,827 | atomos.registry      | INFO     |   Booting swarm_engine...
+2026-04-11 05:46:49,828 | atomos.swarm         | INFO     |   Swarm engine ready (max_workers=8)
+2026-04-11 05:46:49,828 | atomos.registry      | INFO     |     ✅ swarm_engine (healthy)
+2026-04-11 05:46:49,828 | atomos.registry      | INFO     |   Booting ollama_client...
+2026-04-11 05:46:49,833 | atomos.ollama        | INFO     |   Ollama ready: qwen2.5-coder-7b
+2026-04-11 05:46:49,833 | atomos.registry      | INFO     |     ✅ ollama_client (healthy)
+2026-04-11 05:46:49,833 | atomos.registry      | INFO     |   Booting system_observer...
+2026-04-11 05:46:49,833 | atomos.registry      | INFO     |     ✅ system_observer (healthy)
+2026-04-11 05:46:49,833 | atomos.registry      | INFO     |   Booting metrics_collector...
+2026-04-11 05:46:49,833 | atomos.registry      | INFO     |     ✅ metrics_collector (healthy)
+2026-04-11 05:46:49,833 | atomos.registry      | INFO     |   Booting anomaly_detector...
+2026-04-11 05:46:49,833 | atomos.observability | INFO     |   Anomaly detector calibrated
+2026-04-11 05:46:49,833 | atomos.registry      | INFO     |     ✅ anomaly_detector (healthy)
+2026-04-11 05:46:49,833 | atomos.registry      | INFO     |   Booting cli...
+2026-04-11 05:46:49,833 | atomos.ui.cli        | INFO     |   CLI ready
+2026-04-11 05:46:49,833 | atomos.registry      | INFO     |     ✅ cli (initialized)
+2026-04-11 05:46:49,833 | atomos.registry      | INFO     |   Booting aic_os...
+2026-04-11 05:46:49,840 | atomos.registry      | INFO     |     ✅ aic_os (initialized)
+2026-04-11 05:46:49,840 | atomos.registry      | INFO     |   Booting apex_execution_kernel...
+2026-04-11 05:46:49,846 | atomos.registry      | INFO     |     ✅ apex_execution_kernel (initialized)
+2026-04-11 05:46:49,846 | atomos.registry      | INFO     |   Booting apex_runtime...
+2026-04-11 05:46:49,851 | atomos.registry      | ERROR    |     ❌ apex_runtime failed to boot: No module named 'agents'
+2026-04-11 05:47:00,580 | atomos.boot          | INFO     | ============================================================
+2026-04-11 05:47:00,580 | atomos.boot          | INFO     | ATOM OS v15 — BOOT SEQUENCE
+2026-04-11 05:47:00,580 | atomos.boot          | INFO     | ============================================================
+2026-04-11 05:47:00,580 | atomos.boot          | INFO     | 
+[PHASE 0] Loading configuration...
+2026-04-11 05:47:00,580 | atomos.boot          | INFO     |   Config loaded: []
+2026-04-11 05:47:00,580 | atomos.boot          | INFO     | 
+[PHASE 1] Module discovery & registration...
+2026-04-11 05:47:00,627 | atomos.boot          | INFO     |   Auto-registering: aic_os (agent)
+2026-04-11 05:47:00,627 | atomos.boot          | INFO     |   Auto-registering: apex_execution_kernel (agent)
+2026-04-11 05:47:00,627 | atomos.boot          | INFO     |   Auto-registering: apex_runtime (agent)
+2026-04-11 05:47:00,627 | atomos.boot          | INFO     |   Auto-registering: audit_ledger (audit)
+2026-04-11 05:47:00,627 | atomos.boot          | INFO     |   Auto-registering: capability_system (agent)
+2026-04-11 05:47:00,627 | atomos.boot          | INFO     |   Auto-registering: civ_to_reality (agent)
+2026-04-11 05:47:00,627 | atomos.boot          | INFO     |   Auto-registering: civilization_council (agent)
+2026-04-11 05:47:00,627 | atomos.boot          | INFO     |   Auto-registering: civilization_evolution (agent)
+2026-04-11 05:47:00,627 | atomos.boot          | INFO     |   Auto-registering: civilization_memory (agent)
+2026-04-11 05:47:00,627 | atomos.boot          | INFO     |   Auto-registering: control_plane (control)
+2026-04-11 05:47:00,627 | atomos.boot          | INFO     |   Auto-registering: control_plane_evolver (agent)
+2026-04-11 05:47:00,627 | atomos.boot          | INFO     |   Auto-registering: corp_budget_controller (agent)
+2026-04-11 05:47:00,627 | atomos.boot          | INFO     |   Auto-registering: corp_governance_board (agent)
+2026-04-11 05:47:00,627 | atomos.boot          | INFO     |   Auto-registering: corp_org_registry (agent)
+2026-04-11 05:47:00,627 | atomos.boot          | INFO     |   Auto-registering: corp_roi_tracker (agent)
+2026-04-11 05:47:00,627 | atomos.boot          | INFO     |   Auto-registering: corp_role_allocator (agent)
+2026-04-11 05:47:00,627 | atomos.boot          | INFO     |   Auto-registering: cross_economy_trade (agent)
+2026-04-11 05:47:00,628 | atomos.boot          | INFO     |   Auto-registering: distributed_memory (agent)
+2026-04-11 05:47:00,628 | atomos.boot          | INFO     |   Auto-registering: economic_memory (agent)
+2026-04-11 05:47:00,628 | atomos.boot          | INFO     |   Auto-registering: economy_coordinator (agent)
+2026-04-11 05:47:00,628 | atomos.boot          | INFO     |   Auto-registering: episodic_memory (memory)
+2026-04-11 05:47:00,628 | atomos.boot          | INFO     |   Auto-registering: execution_proof_engine (audit)
+2026-04-11 05:47:00,628 | atomos.boot          | INFO     |   Auto-registering: execution_sandbox (agent)
+2026-04-11 05:47:00,628 | atomos.boot          | INFO     |   Auto-registering: global_coordinator (agent)
+2026-04-11 05:47:00,628 | atomos.boot          | INFO     |   Auto-registering: global_episodic_memory (agent)
+2026-04-11 05:47:00,628 | atomos.boot          | INFO     |   Auto-registering: global_impact_memory (agent)
+2026-04-11 05:47:00,628 | atomos.boot          | INFO     |   Auto-registering: global_resource_market (agent)
+2026-04-11 05:47:00,628 | atomos.boot          | INFO     |   Auto-registering: gpu_control (agent)
+2026-04-11 05:47:00,628 | atomos.boot          | INFO     |   Auto-registering: immutable_audit_graph (audit)
+2026-04-11 05:47:00,628 | atomos.boot          | INFO     |   Auto-registering: infra_abstraction (agent)
+2026-04-11 05:47:00,628 | atomos.boot          | INFO     |   Auto-registering: langgraph_core (agent)
+2026-04-11 05:47:00,628 | atomos.boot          | INFO     |   Auto-registering: memory_hierarchy (memory)
+2026-04-11 05:47:00,628 | atomos.boot          | INFO     |   Auto-registering: meta_control_loop (agent)
+2026-04-11 05:47:00,628 | atomos.boot          | INFO     |   Auto-registering: meta_decision_engine (agent)
+2026-04-11 05:47:00,628 | atomos.boot          | INFO     |   Auto-registering: meta_policy_kernel (agent)
+2026-04-11 05:47:00,628 | atomos.boot          | INFO     |   Auto-registering: meta_proof_engine (agent)
+2026-04-11 05:47:00,629 | atomos.boot          | INFO     |   Auto-registering: mission_broker (agent)
+2026-04-11 05:47:00,629 | atomos.boot          | INFO     |   Auto-registering: mission_controller (mission)
+2026-04-11 05:47:00,629 | atomos.boot          | INFO     |   Auto-registering: mission_generator (mission)
+2026-04-11 05:47:00,629 | atomos.boot          | INFO     |   Auto-registering: mission_prioritizer (mission)
+2026-04-11 05:47:00,629 | atomos.boot          | INFO     |   Auto-registering: orchestrator (agent)
+2026-04-11 05:47:00,629 | atomos.boot          | INFO     |   Auto-registering: policy_consensus (agent)
+2026-04-11 05:47:00,629 | atomos.boot          | INFO     |   Auto-registering: policy_engine (agent)
+2026-04-11 05:47:00,629 | atomos.boot          | INFO     |   Auto-registering: policy_kernel (agent)
+2026-04-11 05:47:00,629 | atomos.boot          | INFO     |   Auto-registering: policy_kernel_v2 (policy)
+2026-04-11 05:47:00,629 | atomos.boot          | INFO     |   Auto-registering: policy_kernel_v3 (policy)
+2026-04-11 05:47:00,629 | atomos.boot          | INFO     |   Auto-registering: policy_kernel_v4 (policy)
+2026-04-11 05:47:00,629 | atomos.boot          | INFO     |   Auto-registering: proof_engine (audit)
+2026-04-11 05:47:00,629 | atomos.boot          | INFO     |   Auto-registering: reality_action_engine (agent)
+2026-04-11 05:47:00,629 | atomos.boot          | INFO     |   Auto-registering: reality_control_council (agent)
+2026-04-11 05:47:00,629 | atomos.boot          | INFO     |   Auto-registering: replay_engine (audit)
+2026-04-11 05:47:00,629 | atomos.boot          | INFO     |   Auto-registering: resource_ledger (agent)
+2026-04-11 05:47:00,629 | atomos.boot          | INFO     |   Auto-registering: safety_gate (devops)
+2026-04-11 05:47:00,629 | atomos.boot          | INFO     |   Auto-registering: secure_execution_engine (agent)
+2026-04-11 05:47:00,630 | atomos.boot          | INFO     |   Auto-registering: semantic_firewall (agent)
+2026-04-11 05:47:00,630 | atomos.boot          | INFO     |   Auto-registering: state_machine (agent)
+2026-04-11 05:47:00,630 | atomos.boot          | INFO     |   Auto-registering: swarm (swarm)
+2026-04-11 05:47:00,630 | atomos.boot          | INFO     |   Auto-registering: system_mapper (agent)
+2026-04-11 05:47:00,630 | atomos.boot          | INFO     |   Auto-registering: taar_os (agent)
+2026-04-11 05:47:00,630 | atomos.boot          | INFO     |   Auto-registering: taar_v10 (agent)
+2026-04-11 05:47:00,630 | atomos.boot          | INFO     |   Auto-registering: taar_v10_1 (agent)
+2026-04-11 05:47:00,630 | atomos.boot          | INFO     |   Auto-registering: taar_v14 (control)
+2026-04-11 05:47:00,630 | atomos.boot          | INFO     |   Auto-registering: taar_v5 (agent)
+2026-04-11 05:47:00,630 | atomos.boot          | INFO     |   Auto-registering: taar_v6 (control)
+2026-04-11 05:47:00,630 | atomos.boot          | INFO     |   Auto-registering: taar_v8 (agent)
+2026-04-11 05:47:00,630 | atomos.boot          | INFO     |   Auto-registering: taar_v9 (control)
+2026-04-11 05:47:00,630 | atomos.boot          | INFO     |   Auto-registering: task_graph (agent)
+2026-04-11 05:47:00,630 | atomos.boot          | INFO     |   Auto-registering: task_market (agent)
+2026-04-11 05:47:00,630 | atomos.boot          | INFO     |   Auto-registering: tools_adapter (agent)
+2026-04-11 05:47:00,630 | atomos.boot          | INFO     |   Auto-registering: trusted_context (agent)
+2026-04-11 05:47:00,630 | atomos.boot          | INFO     |   Auto-registering: user_gateway (ui)
+2026-04-11 05:47:00,630 | atomos.boot          | INFO     |   Auto-registering: value_evaluator (agent)
+2026-04-11 05:47:00,631 | atomos.boot          | INFO     | 
+[PHASE 2] Booting service registry...
+2026-04-11 05:47:00,631 | atomos.registry      | INFO     | Boot order: memory → shell_tool → filesystem_tool → git_tool → devops_agent → ci_analyzer → patch_engine → swarm_engine → ollama_client → system_observer → metrics_collector → anomaly_detector → cli → aic_os → apex_execution_kernel → apex_runtime → audit_ledger → capability_system → civ_to_reality → civilization_council → civilization_evolution → civilization_memory → control_plane → control_plane_evolver → corp_budget_controller → corp_governance_board → corp_org_registry → corp_roi_tracker → corp_role_allocator → cross_economy_trade → distributed_memory → economic_memory → economy_coordinator → episodic_memory → execution_proof_engine → execution_sandbox → global_coordinator → global_episodic_memory → global_impact_memory → global_resource_market → gpu_control → immutable_audit_graph → infra_abstraction → langgraph_core → memory_hierarchy → meta_control_loop → meta_decision_engine → meta_policy_kernel → meta_proof_engine → mission_broker → mission_controller → mission_generator → mission_prioritizer → orchestrator → policy_consensus → policy_engine → policy_kernel → policy_kernel_v2 → policy_kernel_v3 → policy_kernel_v4 → proof_engine → reality_action_engine → reality_control_council → replay_engine → resource_ledger → safety_gate → secure_execution_engine → semantic_firewall → state_machine → swarm → system_mapper → taar_os → taar_v10 → taar_v10_1 → taar_v14 → taar_v5 → taar_v6 → taar_v8 → taar_v9 → task_graph → task_market → tools_adapter → trusted_context → user_gateway → value_evaluator
+2026-04-11 05:47:00,631 | atomos.registry      | INFO     |   Booting memory...
+2026-04-11 05:47:00,631 | atomos.registry      | INFO     |     ✅ memory (healthy)
+2026-04-11 05:47:00,631 | atomos.registry      | INFO     |   Booting shell_tool...
+2026-04-11 05:47:00,631 | atomos.tools.shell   | INFO     |   Shell tool ready
+2026-04-11 05:47:00,631 | atomos.registry      | INFO     |     ✅ shell_tool (healthy)
+2026-04-11 05:47:00,631 | atomos.registry      | INFO     |   Booting filesystem_tool...
+2026-04-11 05:47:00,631 | atomos.registry      | INFO     |     ✅ filesystem_tool (healthy)
+2026-04-11 05:47:00,631 | atomos.registry      | INFO     |   Booting git_tool...
+2026-04-11 05:47:00,631 | atomos.registry      | INFO     |     ✅ git_tool (healthy)
+2026-04-11 05:47:00,631 | atomos.registry      | INFO     |   Booting devops_agent...
+2026-04-11 05:47:00,631 | atomos.devops        | INFO     |   DevOps agent ready
+2026-04-11 05:47:00,631 | atomos.registry      | INFO     |     ✅ devops_agent (healthy)
+2026-04-11 05:47:00,631 | atomos.registry      | INFO     |   Booting ci_analyzer...
+2026-04-11 05:47:00,631 | atomos.devops        | INFO     |   CI analyzer ready
+2026-04-11 05:47:00,631 | atomos.registry      | INFO     |     ✅ ci_analyzer (healthy)
+2026-04-11 05:47:00,631 | atomos.registry      | INFO     |   Booting patch_engine...
+2026-04-11 05:47:00,632 | atomos.devops        | INFO     |   Patch engine ready
+2026-04-11 05:47:00,632 | atomos.registry      | INFO     |     ✅ patch_engine (healthy)
+2026-04-11 05:47:00,632 | atomos.registry      | INFO     |   Booting swarm_engine...
+2026-04-11 05:47:00,632 | atomos.swarm         | INFO     |   Swarm engine ready (max_workers=8)
+2026-04-11 05:47:00,632 | atomos.registry      | INFO     |     ✅ swarm_engine (healthy)
+2026-04-11 05:47:00,632 | atomos.registry      | INFO     |   Booting ollama_client...
+2026-04-11 05:47:00,637 | atomos.ollama        | INFO     |   Ollama ready: qwen2.5-coder-7b
+2026-04-11 05:47:00,638 | atomos.registry      | INFO     |     ✅ ollama_client (healthy)
+2026-04-11 05:47:00,638 | atomos.registry      | INFO     |   Booting system_observer...
+2026-04-11 05:47:00,638 | atomos.registry      | INFO     |     ✅ system_observer (healthy)
+2026-04-11 05:47:00,638 | atomos.registry      | INFO     |   Booting metrics_collector...
+2026-04-11 05:47:00,638 | atomos.registry      | INFO     |     ✅ metrics_collector (healthy)
+2026-04-11 05:47:00,638 | atomos.registry      | INFO     |   Booting anomaly_detector...
+2026-04-11 05:47:00,638 | atomos.observability | INFO     |   Anomaly detector calibrated
+2026-04-11 05:47:00,638 | atomos.registry      | INFO     |     ✅ anomaly_detector (healthy)
+2026-04-11 05:47:00,638 | atomos.registry      | INFO     |   Booting cli...
+2026-04-11 05:47:00,638 | atomos.ui.cli        | INFO     |   CLI ready
+2026-04-11 05:47:00,638 | atomos.registry      | INFO     |     ✅ cli (initialized)
+2026-04-11 05:47:00,638 | atomos.registry      | INFO     |   Booting aic_os...
+2026-04-11 05:47:00,645 | atomos.registry      | INFO     |     ✅ aic_os (initialized)
+2026-04-11 05:47:00,646 | atomos.registry      | INFO     |   Booting apex_execution_kernel...
+2026-04-11 05:47:00,652 | atomos.registry      | INFO     |     ✅ apex_execution_kernel (initialized)
+2026-04-11 05:47:00,652 | atomos.registry      | INFO     |   Booting apex_runtime...
+2026-04-11 05:47:00,656 | atomos.registry      | ERROR    |     ❌ apex_runtime failed to boot: No module named 'agents'

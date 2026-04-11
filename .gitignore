@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+*.log
+ATTESTATION_BUNDLE_*.json
+SLSA_*.json
+*.jsonl
+causality_graph.json
+*.patch
+*.json

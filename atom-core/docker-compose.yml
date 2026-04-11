@@ -1,0 +1,756 @@
+# ATOM OS v14.2 — Production Docker Compose
+# Arch: single-machine autonomous AI OS that behaves like distributed cloud cluster
+# Target: Pop!_OS with NVIDIA RTX 3060
+# Features: Zero-Trust, ACOS L0-L8, Federation, Observability
+
+version: "3.9"
+
+x-common-env: &common-env
+  TZ: Asia/Dubai
+  LOG_LEVEL: ${LOG_LEVEL:-info}
+  ATOM_MODE: ${ATOM_MODE:-production}
+  ATOM_NODE_ID: ${ATOM_NODE_ID:-atom-node-001}
+  ATOM_FEDERATION_ENABLED: ${ATOM_FEDERATION_ENABLED:-false}
+  PYTHONUNBUFFERED: "1"
+
+x-healthcheck: &common-healthcheck
+  interval: 30s
+  timeout: 10s
+  retries: 3
+  start_period: 40s
+
+networks:
+  atom-front:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.0.0/24
+  atom-back:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.1.0/24
+  atom-fed:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.2.0/24
+
+volumes:
+  memory-pgdata:
+  timescale-data:
+  qdrant-data:
+  redis-data:
+  loki-data:
+
+services:
+
+  # ═══════════════════════════════════════════════════════════════
+  # 🌐 API GATEWAY — ENTRY POINT
+  # ═══════════════════════════════════════════════════════════════
+  gateway:
+    image: python:3.11-slim
+    container_name: atom-gateway
+    hostname: atom-gateway
+    working_dir: /app
+    volumes:
+      - ./ui:/app/ui
+      - ./core:/app/core
+      - ./config:/app/config:ro
+    command: >
+      sh -c "pip install fastapi uvicorn pydantic aiohttp httpx && uvicorn ui.gateway:app --host 0.0.0.0 --port 8080"
+    ports:
+      - "${GATEWAY_PORT:-8080}:8080"
+    environment:
+      <<: *common-env
+      ATOM_CORE_URL: http://control-plane:8001
+      POLICY_KERNEL_URL: http://policy-kernel:8002
+      ACOS_URL: http://acos-engine:8003
+      SWARM_URL: http://swarm-engine:8004
+      FEDERATION_URL: http://federation-agent:8005
+      REDIS_URL: redis://redis:6379
+      OLLAMA_URL: ${OLLAMA_HOST:-http://ollama:11434}
+      CORS_ORIGINS: "${CORS_ORIGINS:-*}"
+    networks:
+      atom-front:
+    restart: always
+    healthcheck:
+      <<: *common-healthcheck
+      test: ["CMD", "curl", "-sf", "http://localhost:8080/health"]
+    depends_on:
+      redis:
+        condition: service_healthy
+      control-plane:
+        condition: service_healthy
+    mem_limit: 512m
+    cpus: 1.0
+
+  # ═══════════════════════════════════════════════════════════════
+  # 🧠 ATOM CORE BRAIN — Control Plane
+  # ═══════════════════════════════════════════════════════════════
+  control-plane:
+    image: python:3.11-slim
+    container_name: atom-control-plane
+    hostname: atom-control-plane
+    working_dir: /app
+    volumes:
+      - ./core:/app/core
+      - ./agents:/app/agents:ro
+      - ./data:/app/data
+      - ./config:/app/config:ro
+    command: >
+      sh -c "pip install fastapi uvicorn pydantic aiohttp sqlalchemy httpx && python agents/task_graph.py"
+    environment:
+      <<: *common-env
+      ATOM_REGISTRY_URL: http://service-registry:8500
+      POLICY_KERNEL_URL: http://policy-kernel:8002
+      REDIS_URL: redis://redis:6379
+      POSTGRES_URL: postgresql://atom:${POSTGRES_PASSWORD}@postgres:5432/atom_memory
+      NODE_ROLE: control-plane
+      META_LOOP_INTERVAL: "5"
+    networks:
+      atom-back:
+    restart: always
+    healthcheck:
+      <<: *common-healthcheck
+      test: ["CMD", "curl", "-sf", "http://localhost:8001/health"]
+    mem_limit: 512m
+    cpus: 1.0
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  # ═══════════════════════════════════════════════════════════════
+  # 🔐 POLICY KERNEL v3 — ZERO TRUST GATE (inline before EVERY execution)
+  # ═══════════════════════════════════════════════════════════════
+  policy-kernel:
+    image: python:3.11-slim
+    container_name: atom-policy-kernel
+    hostname: atom-policy-kernel
+    working_dir: /app
+    volumes:
+      - ./policy:/app/policy
+      - ./agents:/app/agents:ro
+      - ./data/audit:/app/data/audit
+      - ./config:/app/config:ro
+    command: >
+      sh -c "pip install fastapi pydantic aiohttp httpx && sleep 5 && python agents/policy_kernel_v3.py"
+    environment:
+      <<: *common-env
+      POLICY_STRICT_MODE: "${POLICY_STRICT_MODE:-true}"
+      ZERO_TRUST: "${ZERO_TRUST:-true}"
+      POLICY_CONFIG_PATH: /app/config/policy.yaml
+      CAPABILITY_DB_PATH: /app/data/audit/capabilities.json
+      AUDIT_DB_PATH: /app/data/audit/audit.db
+      FELIX_ENABLED: "true"
+      HARDENED_MODE: "true"
+      NODE_ROLE: policy-kernel
+    networks:
+      atom-back:
+        aliases:
+          - policy-kernel.atom-internal
+    restart: always
+    healthcheck:
+      <<: *common-healthcheck
+      test: ["CMD", "curl", "-sf", "http://localhost:8002/health"]
+    mem_limit: 256m
+    cpus: 0.5
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m,mode=01777
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+
+  # ═══════════════════════════════════════════════════════════════
+  # 🔥 EXECUTION SANDBOX — ISOLATED TASK EXECUTION
+  # NO network access. Strict resource limits.
+  # ═══════════════════════════════════════════════════════════════
+  execution-sandbox:
+    image: python:3.11-slim
+    container_name: atom-execution-sandbox
+    hostname: atom-execution-sandbox
+    working_dir: /app
+    volumes:
+      - ./agents:/app/agents:ro
+      - ./data:/app/data
+      - ./sandbox:/app/sandbox
+    command: >
+      sh -c "pip install fastapi pydantic aiohttp httpx && python agents/execution_sandbox.py"
+    environment:
+      <<: *common-env
+      POLICY_KERNEL_URL: http://policy-kernel:8002
+      SANDBOX_ROOT: /app/sandbox
+      ALLOWED_OPERATIONS: read,execute,write_temp
+      DENIED_OPERATIONS: rm_rf,fork_bomb,privilege_escalation
+      ISOLATION_LEVEL: process
+      NODE_ROLE: execution-sandbox
+    network_mode: none
+    restart: always
+    healthcheck:
+      <<: *common-healthcheck
+      test: ["CMD", "python", "-c", "import socket; assert socket.gethostbyname('localhost')"]
+    mem_limit: 1024m
+    cpus: 2.0
+    read_only: true
+    tmpfs:
+      - /tmp:size=256m,mode=01777
+      - /sandbox:size=512m,mode=01777
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+
+  # ═══════════════════════════════════════════════════════════════
+  # 🐝 SWARM ENGINE — PARALLEL DISTRIBUTED EXECUTION
+  # ═══════════════════════════════════════════════════════════════
+  swarm-engine:
+    image: python:3.11-slim
+    container_name: atom-swarm
+    hostname: atom-swarm
+    working_dir: /app
+    volumes:
+      - ./swarm:/app/swarm
+      - ./agents:/app/agents:ro
+      - ./data:/app/data
+      - ./config:/app/config:ro
+    command: >
+      sh -c "pip install fastapi pydantic aiohttp redis httpx && python agents/swarm_engine.py"
+    environment:
+      <<: *common-env
+      REDIS_URL: redis://redis:6379
+      SWARM_MAX_WORKERS: ${SWARM_MAX_WORKERS:-8}
+      TASK_QUEUE_NAME: atom:swarm:tasks
+      RESULT_QUEUE_NAME: atom:swarm:results
+      HEARTBEAT_INTERVAL: "5"
+      STRATEGY: adaptive
+      NODE_ROLE: swarm
+    networks:
+      atom-back:
+    restart: always
+    healthcheck:
+      <<: *common-healthcheck
+      test: ["CMD", "curl", "-sf", "http://localhost:8004/health"]
+    depends_on:
+      redis:
+        condition: service_healthy
+      policy-kernel:
+        condition: service_healthy
+    mem_limit: 1024m
+    cpus: 2.0
+
+  # ═══════════════════════════════════════════════════════════════
+  # 🔧 DEVOPS SELF-HEALING AGENT
+  # ═══════════════════════════════════════════════════════════════
+  devops-agent:
+    image: python:3.11-slim
+    container_name: atom-devops
+    hostname: atom-devops
+    working_dir: /app
+    volumes:
+      - ./devops:/app/devops
+      - ./agents:/app/agents:ro
+      - ./data:/app/data
+      - ./config:/app/config:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    command: >
+      sh -c "pip install fastapi pydantic aiohttp redis pyyaml httpx && python agents/devops_agent.py"
+    environment:
+      <<: *common-env
+      POLICY_KERNEL_URL: http://policy-kernel:8002
+      CI_LOG_PATH: /app/data/logs/ci.log
+      PATCH_APPLY_MODE: dry-run
+      SELF_HEAL_ENABLED: "true"
+      AUTO_RETRY_THRESHOLD: "3"
+      NODE_ROLE: devops
+    network_mode: bridge
+    restart: always
+    healthcheck:
+      <<: *common-healthcheck
+      test: ["CMD", "curl", "-sf", "http://localhost:8006/health"]
+    depends_on:
+      policy-kernel:
+        condition: service_healthy
+    mem_limit: 512m
+    cpus: 1.0
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m,mode=01777
+    security_opt:
+      - no-new-privileges:true
+
+  # ═══════════════════════════════════════════════════════════════
+  # ⚙️ ACOS ENGINE — RESOURCE OPTIMIZATION L4-L6
+  # ═══════════════════════════════════════════════════════════════
+  acos-engine:
+    image: python:3.11-slim
+    container_name: acos-engine
+    hostname: acos-engine
+    working_dir: /app
+    volumes:
+      - ./acos:/app/acos
+      - ./agents:/app/agents:ro
+      - ./data:/app/data
+      - ./config:/app/config:ro
+    command: >
+      sh -c "pip install fastapi uvicorn pydantic aiohttp psycopg2-binary redis pulp ortools httpx && python acos/solver/optimizer_api.py"
+    environment:
+      <<: *common-env
+      POSTGRES_URL: postgresql://atom:${POSTGRES_PASSWORD}@postgres:5432/atom_memory
+      REDIS_URL: redis://redis:6379
+      OPTIMIZER_STRATEGY: ilp
+      ML_ENGINE_URL: http://ml-engine:8008
+      SAFETY_KERNEL_URL: http://safety-kernel:8009
+      NODE_ROLE: acos
+    networks:
+      atom-back:
+    restart: always
+    healthcheck:
+      <<: *common-healthcheck
+      test: ["CMD", "curl", "-sf", "http://localhost:8003/health"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    mem_limit: 2048m
+    cpus: 2.0
+
+  # ═══════════════════════════════════════════════════════════════
+  # 🤖 ML ENGINE — ACOS L5 (inference API)
+  # ═══════════════════════════════════════════════════════════════
+  ml-engine:
+    image: python:3.11-slim
+    container_name: ml-engine
+    hostname: ml-engine
+    working_dir: /app
+    volumes:
+      - ./acos/ml:/app/ml
+      - ./data:/app/data
+    command: >
+      sh -c "pip install fastapi uvicorn pydantic numpy scikit-learn xgboost joblib httpx && python acos/ml/inference_api.py"
+    environment:
+      <<: *common-env
+      POSTGRES_URL: postgresql://atom:${POSTGRES_PASSWORD}@postgres:5432/atom_memory
+      MODEL_PATH: /app/ml/models
+      INFERENCE_BATCH_SIZE: "32"
+      ACOS_L5_ENABLED: "true"
+      NODE_ROLE: ml-engine
+    networks:
+      atom-back:
+    restart: always
+    healthcheck:
+      <<: *common-healthcheck
+      test: ["CMD", "curl", "-sf", "http://localhost:8008/health"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+    mem_limit: 2048m
+    cpus: 2.0
+
+  # ═══════════════════════════════════════════════════════════════
+  # 🛡️ SAFETY KERNEL — ACOS L8 (hard constraints)
+  # ═══════════════════════════════════════════════════════════════
+  safety-kernel:
+    image: python:3.11-slim
+    container_name: safety-kernel
+    hostname: safety-kernel
+    working_dir: /app
+    volumes:
+      - ./acos/safety:/app/safety
+      - ./agents:/app/agents:ro
+      - ./config:/app/config:ro
+    command: >
+      sh -c "pip install fastapi pydantic aiohttp httpx && python acos/safety/hard_constraints.py"
+    environment:
+      <<: *common-env
+      HARD_CONSTRAINTS_PATH: /app/config/hard_constraints.yaml
+      POLICY_KERNEL_URL: http://policy-kernel:8002
+      VIOLATION_ACTION: block
+      ACOS_L8_ENABLED: "true"
+      NODE_ROLE: safety-kernel
+    networks:
+      atom-back:
+    restart: always
+    healthcheck:
+      <<: *common-healthcheck
+      test: ["CMD", "curl", "-sf", "http://localhost:8009/health"]
+    mem_limit: 256m
+    cpus: 0.5
+    read_only: true
+    tmpfs:
+      - /tmp:size=32m,mode=01777
+
+  # ═══════════════════════════════════════════════════════════════
+  # ⚖️ POLICY GOVERNOR — ACOS L7 (adaptive policy)
+  # ═══════════════════════════════════════════════════════════════
+  policy-governor:
+    image: python:3.11-slim
+    container_name: policy-governor
+    hostname: policy-governor
+    working_dir: /app
+    volumes:
+      - ./acos/governor:/app/governor
+      - ./agents:/app/agents:ro
+      - ./data:/app/data
+      - ./config:/app/config:ro
+    command: >
+      sh -c "pip install fastapi pydantic aiohttp redis httpx && python acos/governor/adaptive_policy.py"
+    environment:
+      <<: *common-env
+      REDIS_URL: redis://redis:6379
+      ML_ENGINE_URL: http://ml-engine:8008
+      SAFETY_KERNEL_URL: http://safety-kernel:8009
+      POLICY_KERNEL_URL: http://policy-kernel:8002
+      EVOLUTION_INTERVAL: "300"
+      ACOS_L7_ENABLED: "true"
+      NODE_ROLE: policy-governor
+    networks:
+      atom-back:
+    restart: always
+    healthcheck:
+      <<: *common-healthcheck
+      test: ["CMD", "curl", "-sf", "http://localhost:8010/health"]
+    depends_on:
+      redis:
+        condition: service_healthy
+      ml-engine:
+        condition: service_healthy
+    mem_limit: 512m
+    cpus: 1.0
+
+  # ═══════════════════════════════════════════════════════════════
+  # 🌐 FEDERATION AGENT — MULTI-NODE ORCHESTRATION
+  # ═══════════════════════════════════════════════════════════════
+  federation-agent:
+    image: python:3.11-slim
+    container_name: atom-federation
+    hostname: atom-federation
+    working_dir: /app
+    volumes:
+      - ./federation:/app/federation
+      - ./agents:/app/agents:ro
+      - ./data:/app/data
+      - ./config:/app/config:ro
+    command: >
+      sh -c "pip install fastapi pydantic aiohttp redis httpx && python agents/global_coordinator.py"
+    environment:
+      <<: *common-env
+      REDIS_URL: redis://redis:6379
+      ATOM_NODE_ID: ${ATOM_NODE_ID:-atom-node-001}
+      FEDERATION_ENABLED: ${ATOM_FEDERATION_ENABLED:-false}
+      HEARTBEAT_INTERVAL: "5"
+      MISSED_HEARTBEATS_BEFORE_DEAD: "3"
+      NODE_ROLE: federation
+    networks:
+      atom-fed:
+    restart: always
+    healthcheck:
+      <<: *common-healthcheck
+      test: ["CMD", "curl", "-sf", "http://localhost:8005/health"]
+    depends_on:
+      redis:
+        condition: service_healthy
+    mem_limit: 512m
+    cpus: 1.0
+
+  # ═══════════════════════════════════════════════════════════════
+  # 🧠 MEMORY SERVICE — EPISODIC + VECTOR
+  # ═══════════════════════════════════════════════════════════════
+  memory-service:
+    image: python:3.11-slim
+    container_name: memory-service
+    hostname: memory-service
+    working_dir: /app
+    volumes:
+      - ./memory:/app/memory
+      - ./agents:/app/agents:ro
+      - ./data/memory:/app/data/memory
+    command: >
+      sh -c "pip install fastapi pydantic aiohttp redis sqlalchemy psycopg2-binary httpx && python agents/episodic_memory.py"
+    environment:
+      <<: *common-env
+      POSTGRES_URL: postgresql://atom:${POSTGRES_PASSWORD}@postgres:5432/atom_memory
+      REDIS_URL: redis://redis:6379
+      QDRANT_URL: http://qdrant:6333
+      MEMORY_TTL_DAYS: "90"
+      VECTOR_DIM: "1536"
+      NODE_ROLE: memory
+    networks:
+      atom-back:
+    restart: always
+    healthcheck:
+      <<: *common-healthcheck
+      test: ["CMD", "curl", "-sf", "http://localhost:8011/health"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      qdrant:
+        condition: service_healthy
+    mem_limit: 1024m
+    cpus: 1.0
+
+  # ═══════════════════════════════════════════════════════════════
+  # 🐘 POSTGRES — ACOS STATE STORE (L4)
+  # ═══════════════════════════════════════════════════════════════
+  postgres:
+    image: postgres:15-alpine
+    container_name: atom-postgres
+    hostname: atom-postgres
+    environment:
+      POSTGRES_USER: atom
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD required}
+      POSTGRES_DB: atom_memory
+      POSTGRES_INITDB_ARGS: "--encoding=UTF8 --locale=en_US.utf8"
+    volumes:
+      - memory-pgdata:/var/lib/postgresql/data
+    networks:
+      atom-back:
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U atom -d atom_memory"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    mem_limit: 2048m
+    cpus: 1.0
+    shm_size: 256m
+
+  # ═══════════════════════════════════════════════════════════════
+  # ⏰ REDIS — TASK QUEUE + CACHE
+  # ═══════════════════════════════════════════════════════════════
+  redis:
+    image: redis:7-alpine
+    container_name: atom-redis
+    hostname: atom-redis
+    command: redis-server --appendonly yes --maxmemory 512mb --maxmemory-policy allkeys-lru --save 60 1
+    volumes:
+      - redis-data:/data
+    networks:
+      atom-back:
+    restart: always
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    mem_limit: 1024m
+    cpus: 0.5
+
+  # ═══════════════════════════════════════════════════════════════
+  # 🔍 QDRANT — VECTOR MEMORY STORE
+  # ═══════════════════════════════════════════════════════════════
+  qdrant:
+    image: qdrant/qdrant:v1.7.4
+    container_name: atom-qdrant
+    hostname: atom-qdrant
+    volumes:
+      - qdrant-data:/qdrant/storage
+    networks:
+      atom-back:
+    restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-sf", "http://localhost:6333/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+    mem_limit: 1024m
+    cpus: 1.0
+
+  # ═══════════════════════════════════════════════════════════════
+  # 📊 OBSERVABILITY STACK
+  # ═══════════════════════════════════════════════════════════════
+  prometheus:
+    image: prom/prometheus:v2.52.0
+    container_name: atom-prometheus
+    hostname: atom-prometheus
+    volumes:
+      - ./observability/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus-data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.enable-lifecycle'
+    ports:
+      - "9090:9090"
+    networks:
+      atom-front:
+    restart: always
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:9090/-/healthy"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    mem_limit: 1024m
+    cpus: 1.0
+
+  grafana:
+    image: grafana/grafana:11.2.0
+    container_name: atom-grafana
+    hostname: atom-grafana
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_PASSWORD:-atom-admin}
+      GF_USERS_ALLOW_SIGN_UP: "false"
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./observability/provisioning:/etc/grafana/provisioning:ro
+    ports:
+      - "3000:3000"
+    networks:
+      atom-front:
+    restart: always
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    mem_limit: 512m
+    cpus: 0.5
+
+  loki:
+    image: grafana/loki:3.0.0
+    container_name: atom-loki
+    hostname: atom-loki
+    volumes:
+      - loki-data:/loki
+    command: -config.file=/etc/loki/local-config.yaml
+    ports:
+      - "3100:3100"
+    networks:
+      atom-back:
+    restart: always
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:3100/ready"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    mem_limit: 512m
+    cpus: 0.5
+
+  # ═══════════════════════════════════════════════════════════════
+  # 🤖 OLLAMA — LOCAL LLM RUNTIME (GPU-enabled)
+  # ═══════════════════════════════════════════════════════════════
+  ollama:
+    image: ollama/ollama:0.1.44
+    container_name: atom-ollama
+    hostname: atom-ollama
+    volumes:
+      - ./models:/root/.ollama
+    environment:
+      OLLAMA_HOST: 0.0.0.0:11434
+      OLLAMA_MODELS: /root/.ollama
+      OLLAMA_NUM_PARALLEL: ${OLLAMA_NUM_PARALLEL:-2}
+      OLLAMA_MAX_LOADED_MODELS: ${OLLAMA_MAX_LOADED_MODELS:-1}
+    ports:
+      - "11434:11434"
+    networks:
+      atom-back:
+    restart: always
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [gpu]
+              count: all
+    shm_size: 4gb
+
+  # ═══════════════════════════════════════════════════════════════
+  # 👁️ VISION SERVICE — YOLO (optional GPU)
+  # ═══════════════════════════════════════════════════════════════
+  vision-service:
+    image: python:3.11-slim
+    container_name: atom-vision
+    hostname: atom-vision
+    working_dir: /app
+    volumes:
+      - ./vision:/app/vision
+      - ./data:/app/data
+    command: >
+      sh -c "pip install fastapi uvicorn pydantic aiohttp ultralytics opencv-python-headless httpx && python vision/yolo_service.py"
+    environment:
+      <<: *common-env
+      OLLAMA_URL: ${OLLAMA_HOST:-http://ollama:11434}
+      NODE_ROLE: vision
+    ports:
+      - "8012:8012"
+    networks:
+      atom-back:
+    restart: unless-stopped
+    healthcheck:
+      <<: *common-healthcheck
+      test: ["CMD", "curl", "-sf", "http://localhost:8012/health"]
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [gpu]
+              count: all
+    mem_limit: 2048m
+    cpus: 2.0
+
+  # ═══════════════════════════════════════════════════════════════
+  # 🎙️ WHISPER STT + PIPER TTS (optional voice)
+  # ═══════════════════════════════════════════════════════════════
+  whisper-service:
+    image: python:3.11-slim
+    container_name: atom-whisper
+    hostname: atom-whisper
+    working_dir: /app
+    volumes:
+      - ./voice:/app/voice
+      - ./data:/app/data
+    command: >
+      sh -c "pip install fastapi uvicorn pydantic aiohttp faster_whisper httpx && python voice/stt_service.py"
+    environment:
+      <<: *common-env
+      NODE_ROLE: whisper
+    ports:
+      - "8013:8013"
+    networks:
+      atom-back:
+    restart: unless-stopped
+    healthcheck:
+      <<: *common-healthcheck
+      test: ["CMD", "curl", "-sf", "http://localhost:8013/health"]
+    mem_limit: 4096m
+    cpus: 2.0
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [gpu]
+              count: all
+
+  tts-service:
+    image: python:3.11-slim
+    container_name: atom-tts
+    hostname: atom-tts
+    working_dir: /app
+    volumes:
+      - ./voice:/app/voice
+      - ./data:/app/data
+    command: >
+      sh -c "pip install fastapi uvicorn pydantic aiohttp piper-tts httpx && python voice/tts_service.py"
+    environment:
+      <<: *common-env
+      NODE_ROLE: tts
+    ports:
+      - "8014:8014"
+    networks:
+      atom-back:
+    restart: unless-stopped
+    healthcheck:
+      <<: *common-healthcheck
+      test: ["CMD", "curl", "-sf", "http://localhost:8014/health"]
+    mem_limit: 2048m
+    cpus: 1.0

@@ -1,0 +1,23 @@
+# prometheus.yml — ATOM OS Observability
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: "atom-os"
+    static_configs:
+      - targets:
+          - "control-plane:8001"
+          - "policy-kernel:8002"
+          - "acos-engine:8003"
+          - "swarm-engine:8004"
+          - "federation-agent:8005"
+          - "devops-agent:8006"
+          - "ml-engine:8008"
+          - "safety-kernel:8009"
+          - "policy-governor:8010"
+          - "memory-service:8011"
+
+  - job_name: "node"
+    static_configs:
+      - targets: ["host.docker.internal:9100"]
