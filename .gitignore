@@ -1,11 +1,44 @@
+# ── LEGACY PROJECTS ──
+AsurDev/
+Knowledge/
+Images/
+home-cluster-iac/
+sdlc_os/
+unified-platform/
+integrations/
+
+# ── LEGACY ARTIFACTS ──
+atomo/
+cvg_*.py
+slsa_*.py
+lccp*.py
+lccp.py
+lccp_v1*.py
+CONS*.md
+*.md
+
+# ── TEST / TEMP ──
 __pycache__/
 *.pyc
-*.pyo
-.DS_Store
 *.log
-ATTESTATION_BUNDLE_*.json
-SLSA_*.json
-*.jsonl
-causality_graph.json
-*.patch
-*.json
+*.tmp
+test_*.py
+*.dump
+
+# ── OS NOISE ──
+.DS_Store
+.Trash/
+.Trash-1000/
+
+# ── STANDALONE SCRIPTS ──
+main.py
+execution_agent.py
+mrsi.py
+sovereign_pipeline.py
+
+# ── EXTERNAL / ENV ──
+.env
+.env.*
+venv/
+.venv/
+*.egg-info/
