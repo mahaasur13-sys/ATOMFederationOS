@@ -1,0 +1,96 @@
+"""
+ATOMFederationOS v2.0 — INTEGRATION TEST
+DCP + Runtime + Federation + Event Bus + Memory Graph
+"""
+from __future__ import annotations
+import time, asyncio
+from runtime.event_bus import EventBus
+from runtime.memory_graph import MemoryGraph
+from runtime.dcp_control_plane import DistributedControlPlane
+from runtime.runtime_v2 import ATOMRuntimeV2
+
+def integration_test():
+    print("╔══════════════════════════════════════════════════════════╗")
+    print("║  ATOMFederationOS v2.0 — FULL INTEGRATION TEST           ║")
+    print("╚══════════════════════════════════════════════════════════╝")
+
+    # ── 1. DCP ──
+    dcp = DistributedControlPlane(heartbeat_timeout=5)
+    for nid in ["atom-001", "atom-002", "atom-003"]:
+        dcp.register_node(nid)
+        dcp.heartbeat(nid)
+    leader = dcp.elect_leader()
+    print(f"\n[DCP] Leader elected: {leader}")
+    
+    # Assign tasks through DCP
+    for i in range(4):
+        target = dcp.assign_task(f"job-{i}")
+        print(f"[DCP] Assigned job-{i} → {target}")
+    
+    # Reconcile
+    rec = dcp.reconcile()
+    print(f"[DCP] Reconcile #{rec['iteration']}: leader={rec['leader']}")
+
+    # ── 2. Runtime ──
+    print("\n[Runtime] Initializing...")
+    bus = EventBus()
+    mg = MemoryGraph()
+    runtime = ATOMRuntimeV2(bus=bus, memory=mg, dcp=dcp)
+    
+    print(f"[Runtime] Node ID: {runtime.node_id}")
+    print(f"[Runtime] DCP Leader: {dcp.leader_id}")
+    print(f"[Runtime] Is Leader Node: {runtime.node_id == dcp.leader_id}")
+
+    # ── 3. Execute missions ──
+    print("\n[Runtime] Executing missions...")
+    missions = [
+        "ci fail: ruff error agents/ci_analyzer.py",
+        "create new agent swarm engine for parallel tasks",
+        "read system status and show logs",
+    ]
+
+    results = []
+    for intent in missions:
+        result = runtime.execute_mission(intent)
+        results.append(result)
+        print(f"\n[Mission] {intent[:50]}")
+        print(f"  Plan ID : {result.get('plan_id', '?')}")
+        print(f"  Status  : {result.get('status', '?')}")
+        print(f"  Steps   : {result.get('steps_executed', 0)}")
+    
+    # ── 4. DCP cluster state ──
+    print("\n[DCP] Final cluster state:")
+    state = dcp.cluster_state()
+    print(f"  Leader : {state['leader']}")
+    for nid, info in state['nodes'].items():
+        print(f"  {nid}: {info['status']}, load={info['load']}, tasks={info['tasks']}")
+
+    # ── 5. Federation ──
+    print("\n[Federation] Simulation...")
+    fed_state = runtime.federation_layer.federation_state()
+    print(f"  Alive nodes : {fed_state['alive_nodes']}")
+    print(f"  Blocked nodes: {fed_state['blocked_nodes']}")
+
+    # ── 6. Event Bus ──
+    events = bus.get_log(limit=5)
+    print(f"\n[EventBus] Last {len(events)} events:")
+    for e in events:
+        print(f"  {e.get('type', '?')}: {e.get('data', {}).get('session_id', '?')}")
+
+    # ── 7. Memory ──
+    print(f"\n[Memory] Nodes: {len(mg.list_nodes())}")
+    
+    all_pass = (
+        leader is not None and
+        all(r.get('status') == 'COMPLETED' for r in results) and
+        len(events) > 0 and
+        len(mg.list_nodes()) >= len(missions)
+    )
+    print(f"\n{'='*60}")
+    print(f"{'✅ ALL TESTS PASSED' if all_pass else '❌ SOME TESTS FAILED'}")
+    
+    return all_pass
+
+if __name__ == "__main__":
+    ok = integration_test()
+    exit(0 if ok else 1)
