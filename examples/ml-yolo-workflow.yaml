@@ -1,0 +1,157 @@
+apiVersion: atom.atomesh.io/v1alpha1
+kind: Workflow
+metadata:
+  name: yolo-training
+  namespace: ml-team
+spec:
+  clusterRef:
+    name: home-lab
+    namespace: atom-system
+  dag:
+    nodes:
+      - id: preprocess
+        taskRef:
+          kind: Task
+          name: preprocess-data
+        resources:
+          cpuRequest: "1"
+          memoryRequest: "2Gi"
+      - id: train
+        taskRef:
+          kind: Task
+          name: train-yolo
+        resources:
+          cpuRequest: "4"
+          memoryRequest: "8Gi"
+          nvidia.com/gpu: "1"
+        dependencies: ["preprocess"]
+      - id: validate
+        taskRef:
+          kind: Task
+          name: validate-model
+        resources:
+          cpuRequest: "2"
+          memoryRequest: "4Gi"
+        dependencies: ["train"]
+      - id: export
+        taskRef:
+          kind: Task
+          name: export-onnx
+        resources:
+          cpuRequest: "1"
+          memoryRequest: "1Gi"
+        dependencies: ["validate"]
+  execution:
+    maxParallel: 2
+    retryPolicy:
+      maxAttempts: 3
+      backoffMs: 2000
+      retryOn:
+        - OOMKilled
+        - NodeNotReady
+    deterministic:
+      requiredTickSync: true
+      replayable: true
+---
+apiVersion: atom.atomesh.io/v1alpha1
+kind: Task
+metadata:
+  name: preprocess-data
+  namespace: ml-team
+spec:
+  binary:
+    image: "ghcr.io/mahaasur13-sys/ml-preprocess:v2.1"
+    entrypoint: "/bin/preprocess"
+    args: ["--dataset", "/data/coco2017", "--output", "/output/preprocessed"]
+  sandbox:
+    cpuLimit: "2"
+    memoryLimit: "4Gi"
+    allowedSyscalls: [read, write, mmap, brk, clock_nanosleep]
+    blockedSyscalls: [mount, syslog, ptrace, init_module]
+    networkMode: isolated
+  checkpoint:
+    enabled: true
+    intervalTicks: 10
+  output:
+    volume:
+      size: "10Gi"
+      mountPath: /output
+---
+apiVersion: atom.atomesh.io/v1alpha1
+kind: Task
+metadata:
+  name: train-yolo
+  namespace: ml-team
+spec:
+  binary:
+    image: "ghcr.io/mahaasur13-sys/yolo-trainer:v11"
+    entrypoint: "/bin/train"
+    args: ["--config", "/configs/yolo11m.yaml", "--data", "/data/preprocessed", "--epochs", "100"]
+  sandbox:
+    cpuLimit: "8"
+    memoryLimit: "16Gi"
+    nvidia.com/gpu: "1"
+    allowedSyscalls: [read, write, mmap, brk, clock_nanosleep]
+    blockedSyscalls: [mount, syslog, ptrace, init_module]
+    networkMode: isolated
+  checkpoint:
+    enabled: true
+    intervalTicks: 5
+    checkpointPath: /checkpoints
+  output:
+    volume:
+      size: "50Gi"
+      mountPath: /checkpoints
+    artifacts:
+      - path: /outputs/model.pt
+        name: yolo-model
+---
+apiVersion: atom.atomesh.io/v1alpha1
+kind: Task
+metadata:
+  name: validate-model
+  namespace: ml-team
+spec:
+  binary:
+    image: "ghcr.io/mahaasur13-sys/ml-validator:v1"
+    entrypoint: "/bin/validate"
+    args: ["--model", "/inputs/model.pt", "--data", "/data/val", "--metrics", "mAP50,mAP50:95"]
+  sandbox:
+    cpuLimit: "4"
+    memoryLimit: "8Gi"
+    allowedSyscalls: [read, write, mmap, brk, clock_nanosleep]
+    blockedSyscalls: [mount, syslog, ptrace, init_module]
+    networkMode: isolated
+  input:
+    volume:
+      size: "20Gi"
+      mountPath: /inputs
+  checkpoint:
+    enabled: false
+---
+apiVersion: atom.atomesh.io/v1alpha1
+kind: Task
+metadata:
+  name: export-onnx
+  namespace: ml-team
+spec:
+  binary:
+    image: "ghcr.io/mahaasur13-sys/onnx-exporter:v3"
+    entrypoint: "/bin/export"
+    args: ["--input", "/inputs/model.pt", "--output", "/outputs/yolo11m.onnx", "--opset", "17"]
+  sandbox:
+    cpuLimit: "2"
+    memoryLimit: "4Gi"
+    allowedSyscalls: [read, write, mmap, brk, clock_nanosleep]
+    blockedSyscalls: [mount, syslog, ptrace, init_module]
+    networkMode: isolated
+  input:
+    volume:
+      size: "5Gi"
+      mountPath: /inputs
+  output:
+    volume:
+      size: "5Gi"
+      mountPath: /outputs
+  checkpoint:
+    enabled: false

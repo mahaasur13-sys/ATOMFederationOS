@@ -1,0 +1,94 @@
+# Chaos Engineering Tests for ATOMFederationOS v10
+# Run with: kubectl apply -f examples/chaos-tests.yaml
+
+apiVersion: atom.atomesh.io/v1alpha1
+kind: Workflow
+metadata:
+  name: determinism-chaos-test
+  namespace: atom-system
+spec:
+  clusterRef:
+    name: home-lab
+    namespace: atom-system
+  dag:
+    nodes:
+      - id: inject-partition
+        taskRef:
+          kind: Task
+          name: network-partitioner
+        dependencies: []
+      - id: run-workload
+        taskRef:
+          kind: Task
+          name: deterministic-workload
+        dependencies: ["inject-partition"]
+      - id: verify-replay
+        taskRef:
+          kind: Task
+          name: replay-verifier
+        dependencies: ["run-workload"]
+  execution:
+    maxParallel: 1
+    deterministic:
+      requiredTickSync: true
+      replayable: true
+---
+apiVersion: atom.atomesh.io/v1alpha1
+kind: Task
+metadata:
+  name: network-partitioner
+  namespace: atom-system
+spec:
+  binary:
+    image: "chaosnetworks/partition-tool:v1"
+    entrypoint: "/bin/partition"
+    args: ["--target-node", "node-2", "--duration", "30s", "--mode", "partition"]
+  sandbox:
+    cpuLimit: "0.5"
+    memoryLimit: "512Mi"
+    allowedSyscalls: [read, write, mmap, brk]
+    blockedSyscalls: [mount, syslog, ptrace]
+    networkMode: host
+---
+apiVersion: atom.atomesh.io/v1alpha1
+kind: Task
+metadata:
+  name: deterministic-workload
+  namespace: atom-system
+spec:
+  binary:
+    image: "ghcr.io/mahaasur13-sys/deterministic-wl:v1"
+    entrypoint: "/bin/run-workload"
+    args: ["--ticks", "100", "--operations", "1000", "--seed", "42"]
+  sandbox:
+    cpuLimit: "2"
+    memoryLimit: "2Gi"
+    allowedSyscalls: [read, write, mmap, brk, clock_nanosleep]
+    blockedSyscalls: [mount, syslog, ptrace, init_module]
+    networkMode: isolated
+  checkpoint:
+    enabled: true
+    intervalTicks: 5
+---
+apiVersion: atom.atomesh.io/v1alpha1
+kind: Task
+metadata:
+  name: replay-verifier
+  namespace: atom-system
+spec:
+  binary:
+    image: "ghcr.io/mahaasur13-sys/replay-verifier:v1"
+    entrypoint: "/bin/verify"
+    args: ["--trace", "/inputs/trace.json", "--expected-hash", "a3f7c9..."]
+  sandbox:
+    cpuLimit: "1"
+    memoryLimit: "1Gi"
+    allowedSyscalls: [read, write, mmap, brk]
+    blockedSyscalls: [mount, syslog, ptrace, init_module]
+    networkMode: isolated
+  input:
+    volume:
+      size: "1Gi"
+      mountPath: /inputs
+  deterministic:
+    requiredTickSync: true
