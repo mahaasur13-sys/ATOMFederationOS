@@ -1,0 +1,205 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Release tag (e.g. v10.0.0)'
+        required: true
+        type: string
+
+env:
+  GO_VERSION: "1.23"
+  PY_VERSION: "3.12"
+  IMAGE_PREFIX: ghcr.io/mahaasur13-sys
+
+jobs:
+  # ────────────────────────────────────────────────────────────────────────
+  # Validate tag
+  # ────────────────────────────────────────────────────────────────────────
+  validate:
+    runs-on: ubuntu-latest
+    outputs:
+      tag: ${{ steps.tag.outputs.tag }}
+    steps:
+      - id: tag
+        run: |
+          TAG=${GITHUB_REF##*/}
+          if ! [[ $TAG =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "Invalid tag format: $TAG (expected vMAJOR.MINOR.PATCH)"
+            exit 1
+          fi
+          echo "tag=$TAG" >> $GITHUB_OUTPUT
+
+  # ────────────────────────────────────────────────────────────────────────
+  # Build Go modules
+  # ────────────────────────────────────────────────────────────────────────
+  build-go:
+    needs: [validate]
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        module: [atom-kernel, atom-operator, atom-agent, atom-federation]
+        go: ["1.23"]
+        platform: [linux/amd64, linux/arm64]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ env.GO_VERSION }}
+          cache: true
+          cache-dependency-path: ${{ matrix.module }}/go.sum
+
+      - name: Build
+        env:
+          GOOS: linux
+          GOARCH: ${{ matrix.platform == 'linux/amd64' && 'amd64' || 'arm64' }}
+        run: |
+          cd ${{ matrix.module }}
+          CGO_ENABLED=0 go build -ldflags="-s -w" \
+            -o dist/${{ matrix.module }}-${{ matrix.platform }}-${{ env.GOARCH }}.{{ end }}
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.module }}-${{ matrix.platform }}
+          path: ${{ matrix.module }}/dist/
+          retention-days: 5
+
+  # ────────────────────────────────────────────────────────────────────────
+  # Build Python SBS
+  # ────────────────────────────────────────────────────────────────────────
+  build-sbs:
+    needs: [validate]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PY_VERSION }}
+
+      - name: Build wheel
+        run: |
+          pip install build -q
+          python3 -m build
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-sbs
+          path: sbs/dist/
+          retention-days: 5
+
+  # ────────────────────────────────────────────────────────────────────────
+  # Build Docker images
+  # ────────────────────────────────────────────────────────────────────────
+  docker:
+    needs: [validate, build-go]
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        module: [atom-kernel, atom-operator, atom-agent, atom-federation]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: ${{ matrix.module }}-*
+          path: ${{ matrix.module }}/dist/
+          merge-multiple: true
+
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: ${{ matrix.module }}
+          push: true
+          tags: |
+            ${{ env.IMAGE_PREFIX }}/${{ matrix.module }}:${{ needs.validate.outputs.tag }}
+            ${{ env.IMAGE_PREFIX }}/${{ matrix.module }}:latest
+          platforms: linux/amd64,linux/arm64
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  # ────────────────────────────────────────────────────────────────────────
+  # Create GitHub Release
+  # ────────────────────────────────────────────────────────────────────────
+  release:
+    needs: [validate, docker, build-sbs]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: dist/
+          merge-multiple: true
+
+      - name: Generate changelog
+        id: changelog
+        run: |
+          TAG=${{ needs.validate.outputs.tag }}
+          if git tag -l | grep -q "$TAG"; then
+            git log --oneline $(git describe --tags --abbrev=0 HEAD^)..HEAD 2>/dev/null | head -20
+          else
+            echo "No previous tags found"
+          fi
+          echo "changelog<<EOF" >> $GITHUB_OUTPUT
+          echo "# What's Changed" >> $GITHUB_OUTPUT
+          echo "" >> $GITHUB_OUTPUT
+          git log --oneline --since="4 weeks ago" --until="$TAG^{}" 2>/dev/null | head -30 >> $GITHUB_OUTPUT || true
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ needs.validate.outputs.tag }}
+          name: ${{ needs.validate.outputs.tag }}
+          body_path: ${{ steps.changelog.outputs.changelog }}
+          draft: false
+          prerelease: ${{ contains(needs.validate.outputs.tag, '-rc') }}
+          files: |
+            dist/**/*
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Push Docker tags
+        run: |
+          for mod in atom-kernel atom-operator atom-agent atom-federation; do
+            docker push ${{ env.IMAGE_PREFIX }}/$mod:${{ needs.validate.outputs.tag }}
+            docker push ${{ env.IMAGE_PREFIX }}/$mod:latest
+          done
+
+      - name: Publish Python SBS to PyPI
+        if: github.event_name == 'push'
+        run: |
+          pip install twine -q
+          python3 -m twine upload dist/sbs/dist/*.whl 2>/dev/null || \
+          echo "PyPI upload requires PYPI_TOKEN secret"

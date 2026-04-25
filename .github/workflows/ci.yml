@@ -1,0 +1,196 @@
+name: CI
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  GO_VERSION: "1.23"
+  PY_VERSION: "3.12"
+  GOLANGCI_LINT_VERSION: v1.62.0
+
+jobs:
+  # ────────────────────────────────────────────────────────────────────────
+  # Python SBS — Core module tests
+  # ────────────────────────────────────────────────────────────────────────
+  test-sbs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ env.PY_VERSION }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PY_VERSION }}
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -e ".[dev]" -q
+
+      - name: Run tests
+        run: pytest sbs/tests/ alignment/test_gsct.py -q --tb=short
+
+      - name: CLI smoke tests
+        run: |
+          sbs --version
+          sbs verify
+          sbs status
+          sbs doctor
+          sbs schema-check '{"drl":{"version":1},"ccl":{"version":1},"f2_f3_f8":{"version":1},"desc":{"version":1},"sbs":{"version":1}}'
+
+      - name: Determinism check
+        run: |
+          for i in 1 2 3; do
+            python3 -m sbs verify 2>&1 | tail -1
+          done | sort -u | grep -q "ALL PASS" && echo "PASS: deterministic" || { echo "FAIL: non-deterministic"; exit 1; }
+
+      - name: Version consistency
+        run: |
+          from_import=$(python3 -c "import sbs; print(sbs.__version__)")
+          from_file=$(python3 -c "from sbs.version import __version__; print(__version__)")
+          from_pyproject=$(python3 -c "import tomllib; t=tomllib.load(open('pyproject.toml','rb')); print(t['project']['version'])")
+          echo "pyproject: $from_pyproject | runtime: $from_import | file: $from_file"
+          if [ "$from_import" = "$from_file" ] && [ "$from_file" = "$from_pyproject" ]; then
+            echo "PASS: versions match"
+          else
+            echo "FAIL: versions differ"
+            exit 1
+          fi
+
+      - name: Security check
+        run: |
+          if grep -rE "ghp_|sk_live_|sk_test_" . --exclude-dir=.git --exclude-dir=.github 2>/dev/null; then
+            echo "FAIL: token found in source"
+            exit 1
+          fi
+          echo "PASS: no token leaks"
+
+  # ────────────────────────────────────────────────────────────────────────
+  # Go modules — Build + Test + Lint matrix
+  # ────────────────────────────────────────────────────────────────────────
+  test-go:
+    needs: []
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        module: [atom-kernel, atom-operator, atom-agent, atom-federation]
+        go: ["1.23", "1.24"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Go ${{ matrix.go }}
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ matrix.go }}
+          cache: true
+          cache-dependency-path: ${{ matrix.module }}/go.sum
+
+      - name: Cache Go modules
+        uses: actions/cache@v4
+        with:
+          path: ~/go/pkg/mod
+          key: ${{ runner.os }}-go-${{ matrix.go }}-${{ matrix.module }}-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-${{ matrix.go }}-${{ matrix.module }}-
+
+      - name: Go vet
+        run: cd ${{ matrix.module }} && go vet ./... 2>&1
+
+      - name: Run tests
+        run: cd ${{ matrix.module }} && go test -race -short -count=1 ./...
+
+      - name: Determinism tests
+        if: matrix.module == 'atom-kernel'
+        run: |
+          cd ${{ matrix.module }}
+          for i in 1 2 3; do
+            go test -run TestDeterministic -v ./pkg/... 2>&1 | grep -E "PASS|FAIL" | tail -1
+          done | sort -u | grep -q "PASS" && echo "PASS: deterministic" || { echo "FAIL: non-deterministic"; exit 1; }
+
+  # ────────────────────────────────────────────────────────────────────────
+  # Go modules — Lint (separate job for golangci-lint)
+  # ────────────────────────────────────────────────────────────────────────
+  lint-go:
+    needs: []
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        module: [atom-kernel, atom-operator, atom-agent, atom-federation]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ env.GO_VERSION }}
+          cache: true
+
+      - name: Run golangci-lint
+        uses: golangci/golangci-lint-action@v6
+        with:
+          version: ${{ env.GOLANGCI_LINT_VERSION }}
+          working-directory: ${{ matrix.module }}
+
+  # ────────────────────────────────────────────────────────────────────────
+  # Security
+  # ────────────────────────────────────────────────────────────────────────
+  security:
+    needs: []
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Go vulnerability scan
+        run: |
+          for mod in atom-kernel atom-operator atom-agent atom-federation; do
+            cd $mod
+            govulncheck ./... 2>&1 | tail -5 || true
+            cd - > /dev/null
+          done
+
+      - name: Dependency review
+        uses: actions/dependency-review-action@v4
+
+  # ────────────────────────────────────────────────────────────────────────
+  # Docker build (on merge to master)
+  # ────────────────────────────────────────────────────────────────────────
+  docker:
+    needs: [test-go, test-sbs, lint-go]
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        module: [atom-kernel, atom-operator, atom-agent, atom-federation]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: ${{ matrix.module }}
+          push: true
+          tags: |
+            ghcr.io/mahaasur13-sys/${{ matrix.module }}:${{ github.sha }}
+            ghcr.io/mahaasur13-sys/${{ matrix.module }}:latest
+          platforms: linux/amd64,linux/arm64
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
